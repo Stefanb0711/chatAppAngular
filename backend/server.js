@@ -9,7 +9,9 @@ import {configDotenv} from "dotenv";
 console.log("Api Key: ", apiKey);*/
 
 const app = express();
-const port = 3000;
+const port = 3001;
+
+const JWT_SECRET = "geheimSchlüssel";
 
 const db = new pg.Client({
     user: "postgres",
@@ -46,9 +48,19 @@ app.post("/register", async (req, res) => {
 
     console.log("RegistrationData", registerData);
 
+    const resultSearchingExistingUsernamesOrEmails = db.query("SELECT username WHERE username = $1 OR email = $2", [])
 
-    const result = await db.query("INSERT INTO users (username, email, password) VALUES (1, 'Cheese', 9.99)")
+    if (registerData.password !== registerData.passwordConfirm){
+        return res.status(404).json({"message" : "Passwörter stimmen nicht überein"})
+    }
 
+    try {
+
+        const response = await db.query("INSERT INTO users (username, email, password) VALUES ($1, $2, $3)", [registerData.username, registerData.email, registerData.password]);
+
+    } catch(err){
+
+    }
 
 });
 
