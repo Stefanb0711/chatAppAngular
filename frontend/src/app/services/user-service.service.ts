@@ -17,4 +17,8 @@ export class UserService {
     return this.httpServ.post<any>("http://localhost:3001/get-users-matching-search", {inputValue});
   }
 
+  addUserForChat(contactId: number){
+
+  }
+
 }
