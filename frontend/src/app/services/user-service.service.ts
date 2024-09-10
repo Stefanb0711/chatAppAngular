@@ -14,7 +14,7 @@ export class UserService {
   }
 
   getSpecificUsers(inputValue: string){
-    return this.httpServ.post<UserModel[]>("http://localhost:3001/get-users-matching-search", {inputValue});
+    return this.httpServ.post<any>("http://localhost:3001/get-users-matching-search", {inputValue});
   }
 
 }
