@@ -128,13 +128,69 @@ app.post("/get-users-matching-search", /*verifyToken(),*/ async(req, res) => {
 
 
 
-app.get("/login", async (req, res) => {
+app.post("/login", async (req, res) => {
 
     const loginData = req.body;
 
-    jwt.sign(payload, jwtSecret, {expiresIn: "1h"});
+    console.log("Bin im Login-Teil. DIe Logindaten: ", loginData);
+
+    try{
+        const result = await db.query("SELECT * FROM users WHERE username = $1 AND password = $2", [loginData["usernameOrEmail"], loginData["password"]]);
+
+        console.log("Result.Rows: ", result.rows);
+
+        if (result.rows.length > 0){
+
+            console.log("Result.Rows größer als 1");
+
+            jwt.sign({ loginData }, JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
+                if (err) {
+
+                    console.log("Result.Rows größer als 1 aber Fehler beim erstellen des Tokens");
+
+
+                    res.status(500).json({ message: 'Fehler beim Erstellen des Tokens' });
+                } else {
+                    // Rückgabe des Tokens als Antwort
+
+                    console.log("Json Webtoken");
+
+                    return res.status(200).json({token});
+
+                }
+            });
+
+
+
+        }
+    } catch (err){
+        console.error(err);
+    }
+
+    //jwt.sign(payload, jwtSecret, {expiresIn: "1h"});
 
 });
+
+
+app.get("/get-current-own-user-id", async (req, res) => {
+
+    //req.headers["Authorization"]
+
+});
+
+app.post("/add-user-for-chat", async (req, res) => {
+
+    const currentUserId = req.body["currentUserId"];
+    const contactId = req.body["contactId"];
+
+    try {
+        await db.query("UPDATE users SET contacts_of_user = $1 WHERE id = $2", [contactId, currentUserId]);
+
+    } catch (err){
+        return res.status(500).json({"message": "Internal Server Error"});
+    }
+
+})
 
 
 app.listen(port, () => {
