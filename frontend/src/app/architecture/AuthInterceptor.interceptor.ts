@@ -1,5 +1,5 @@
 import {Injectable, SkipSelf} from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import {HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {AuthService} from "../services/auth-service.service";
 
@@ -11,6 +11,8 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   authToken:string = "";
+
+
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Hier kannst du das Authentifizierungs-Token hinzufügen

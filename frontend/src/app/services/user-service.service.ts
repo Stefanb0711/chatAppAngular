@@ -1,5 +1,5 @@
 import {Injectable, SkipSelf} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TokenResponseModel} from "../models/TokenResponse.model";
 import {UserModel} from "../models/User.model";
 import {AuthService} from "./auth-service.service";
@@ -15,7 +15,16 @@ export class UserService {
   }
 
   getSpecificUsers(inputValue: string){
-    return this.httpServ.post<any>("http://localhost:3001/get-users-matching-search", {inputValue});
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    });
+
+
+    return this.httpServ.post<any>("http://localhost:3001/get-users-matching-search", {inputValue}, {
+      "headers": headers
+    });
   }
 
   addUserForChat(contactId: number | null){
