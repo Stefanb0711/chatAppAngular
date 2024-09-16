@@ -10,6 +10,13 @@ export class UserService {
   constructor(public httpServ: HttpClient, private authServ: AuthService) {
   }
 
+  myContactsIds: number[] = [];
+
+  myContacts: UserModel[] = [];
+
+
+  currentChatPartnerId: number | null = null;
+
   getAllUsers(){
     return this.httpServ.get<any[]>("http://localhost:3001/get-all-users");
   }
@@ -28,9 +35,32 @@ export class UserService {
   }
 
   addUserForChat(contactId: number | null){
-    return this.httpServ.post<any>("http://localhost:3001/add-user-for-chat", {"contactId": contactId, "currentUserId": this.authServ.currentUserId});
+    return this.httpServ.post<any>("http://localhost:3001/add-user-for-chat", {contactId, "currentUserId": this.authServ.currentUserId});
   }
 
+
+  getMyContactsIds(){
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    });
+
+    return this.httpServ.post<any>("http://localhost:3001/get-my-contacts-ids", {"currentUserId": this.authServ.currentUserId}, {
+      headers
+    });
+  }
+
+
+  getMyContacts() {
+
+    /*const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    });*/
+
+    return this.httpServ.post<any>("http://localhost:3001/get-my-contacts", {"myContactsIds": this.myContactsIds} );
+  }
 
   getCurrentOwnUserId(){
     return this.httpServ.get<any>("http://localhost:3001/get-current-own-user-id");

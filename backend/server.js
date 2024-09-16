@@ -58,11 +58,17 @@ function verifyToken(req, res, next) {
     });
 }
 
-app.get("/get-my-contacts", async (req, res) => {
-    try {
-        const result = db.await("SELECT contacts_of_user FROM users WHERE id=$1", []);
+app.post("/get-my-contacts-ids", verifyToken, async (req, res) => {
 
-        return res.status(200).json({result});
+    const currentUserId = req.body["currentUserId"];
+
+    try {
+        const result = await db.query("SELECT contacts_of_user FROM users WHERE id=$1", [currentUserId]);
+
+        const data = result.rows[0]["contacts_of_user"];
+        console.log("My Contacts: ", data);
+
+        return res.status(200).json({data});
 
 
     } catch (err){
@@ -73,6 +79,27 @@ app.get("/get-my-contacts", async (req, res) => {
     }
 
 
+});
+
+
+app.post("/get-my-contacts"/*, verifyToken*/, async (req, res) => {
+
+    const myContactsIds = req.body["myContactsIds"];
+
+    console.log("MyContactsId: ", myContactsIds);
+
+    try {
+        const result = await db.query("SELECT * FROM users WHERE id = ANY($1::int[])", [myContactsIds]);
+        console.log("MyContacts: ", result.rows);
+
+        const data = result.rows;
+
+        return res.status(200).json({data});
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({"message": "Internal Server Error"});
+    }
 });
 
 app.post("/register", async (req, res) => {
@@ -120,12 +147,12 @@ app.post("/get-users-matching-search", verifyToken, async(req, res) => {
 
     const searchInput = req.body["inputValue"];
 
-    console.log("SearchInput: ", searchInput);
+    //console.log("SearchInput: ", searchInput);
 
     try {
         const result = await db.query("SELECT * FROM users WHERE username ILIKE $1 ", [`%${searchInput}%`]);
 
-        console.log("Result.Rows: ", result.rows);
+        //console.log("Result.Rows: ", result.rows);
 
         if (result.rows.length > 0)
             return res.status(200).json({"userData": result.rows});
@@ -163,8 +190,13 @@ app.post("/login", async (req, res) => {
                 } else {
                     // Rückgabe des Tokens als Antwort
 
+                    //console.log("CurrentUserId: ", result.rows[0]["id"]);
 
-                    return res.status(200).json({token});
+                    const currentUserId = result.rows[0]["id"];
+
+                    console.log("CurrentUserId: ", currentUserId);
+
+                    return res.status(200).json({token, currentUserId});
 
                 }
             });
@@ -192,11 +224,26 @@ app.post("/add-user-for-chat", async (req, res) => {
     const currentUserId = req.body["currentUserId"];
     const contactId = req.body["contactId"];
 
-    try {
-        await db.query("UPDATE users SET contacts_of_user = $1 WHERE id = $2", [contactId, currentUserId]);
+    console.log("KontaktId: ", contactId);
+    console.log("CurrentUserId: ", currentUserId);
 
+    try {
+        await db.query("UPDATE users SET contacts_of_user = array_append(contacts_of_user, $1) WHERE id = $2", [contactId, currentUserId]);
+        console.log("User adden hat geklappt");
+        return res.status(200);
     } catch (err){
         return res.status(500).json({"message": "Internal Server Error"});
+    }
+
+})
+
+app.post("/load-chat-messages", async (req, res) => {
+
+    try {
+        const result = db.query("SELECT * FROM users WHERE ")
+
+    } catch (err) {
+
     }
 
 })
