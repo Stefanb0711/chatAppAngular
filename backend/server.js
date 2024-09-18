@@ -40,6 +40,8 @@ const payload = {
     "password": ""
 };
 
+let currentUserId = null;
+
 
 
 function verifyToken(req, res, next) {
@@ -239,15 +241,69 @@ app.post("/add-user-for-chat", async (req, res) => {
 
 app.post("/load-chat-messages", async (req, res) => {
 
+   currentUserId = req.body["currentUserId"];
+   const currentChatPartnerId = req.body["currentChatPartnerId"];
+
     try {
-        const result = db.query("SELECT * FROM users WHERE ")
+        const result = db.query("SELECT * FROM users WHERE current_user_id = $1 AND chat_partner = $2", [currentUserId, currentChatPartnerId]);
+
+        const data = result.rows;
+
+        return res.status(200).json({data});
 
     } catch (err) {
 
+        return res.status(500).json({"message": "Internal Server Error"});
     }
 
 })
 
+
+app.post("/add-chat-message", async (req, res) => {
+
+    const currentUserId = req.body["currentUserId"];
+    const currentChatPartnerId = req.body["currentChatPartnerId"];
+    const message = req.body["message"];
+    const time_of_message = req.body["time_of_message"];
+
+
+    console.log(`CurrentUserId: ${currentUserId}, CurrentChatPartnerId: ${currentChatPartnerId}, Message: ${message}, Time of Message: ${time_of_message}`);
+
+    try{
+        const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
+
+        if (response.ok){
+            return res.status(200).json({"message": "Nachricht erfolgreich verschickt"});
+        }
+        return res.status(404).json({"message": "Konnte Nachricht nicht verschicken"});
+
+    } catch (err) {
+
+        return res.status(500).json({"message": "Internal Servere error"});
+    }
+
+})
+
+
+app.post("/load-chat", async (req, res) => {
+
+    const currentUserId = req.body("currentUserId");
+    const currentChatPartnerId = req.body("currentChatPartnerId");
+
+    try {
+        const result = db.query("SELECT * FROM chats WHERE current_user_id = $1 AND chat_partner = $2", [currentUserId, currentChatPartnerId]);
+
+        if (result.rows > 0) {
+
+        }
+
+        return res.status(200).json({});
+
+    } catch (err) {
+        return res.status(500).json()
+
+    }
+})
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);

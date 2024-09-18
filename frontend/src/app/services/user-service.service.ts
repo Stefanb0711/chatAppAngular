@@ -66,4 +66,9 @@ export class UserService {
     return this.httpServ.get<any>("http://localhost:3001/get-current-own-user-id");
   }
 
+
+  loadChats() {
+    return this.httpServ.post<any>("http://localhost:3001/load-chat-messages", {"currentUserId": this.authServ.currentUserId, "currentChatPartnerId": this.currentChatPartnerId});
+  }
+
 }
