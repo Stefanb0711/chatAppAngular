@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TokenResponseModel} from "../models/TokenResponse.model";
 import {UserModel} from "../models/User.model";
 import {AuthService} from "./auth-service.service";
+import {ApiResponseModel} from "../models/ApiResponse.model";
 
 @Injectable({providedIn: "root"})
 export class UserService {
@@ -35,7 +36,7 @@ export class UserService {
   }
 
   addUserForChat(contactId: number | null){
-    return this.httpServ.post<any>("http://localhost:3001/add-user-for-chat", {contactId, "currentUserId": this.authServ.currentUserId});
+    return this.httpServ.post<ApiResponseModel>("http://localhost:3001/add-user-for-chat", {contactId, "currentUserId": this.authServ.currentUserId});
   }
 
 

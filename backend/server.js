@@ -196,7 +196,7 @@ app.post("/login", async (req, res) => {
 
                     const currentUserId = result.rows[0]["id"];
 
-                    console.log("CurrentUserId: ", currentUserId);
+                    //console.log("CurrentUserId: ", currentUserId);
 
                     return res.status(200).json({token, currentUserId});
 
@@ -239,6 +239,7 @@ app.post("/add-user-for-chat", async (req, res) => {
 
 })
 
+/*
 app.post("/load-chat-messages", async (req, res) => {
 
    currentUserId = req.body["currentUserId"];
@@ -256,7 +257,7 @@ app.post("/load-chat-messages", async (req, res) => {
         return res.status(500).json({"message": "Internal Server Error"});
     }
 
-})
+})*/
 
 
 app.post("/add-chat-message", async (req, res) => {
@@ -267,7 +268,11 @@ app.post("/add-chat-message", async (req, res) => {
     const time_of_message = req.body["time_of_message"];
 
 
-    console.log(`CurrentUserId: ${currentUserId}, CurrentChatPartnerId: ${currentChatPartnerId}, Message: ${message}, Time of Message: ${time_of_message}`);
+    //console.log(`CurrentUserId: ${currentUserId}, CurrentChatPartnerId: ${currentChatPartnerId}, Message: ${message}, Time of Message: ${time_of_message}`);
+
+    if (currentUserId === null || currentChatPartnerId === null || message === ""){
+        return res.status(404).json({"message": "Entweder Sie sind nicht angemeldet, oder es wurde kein Chatpartner ausgewählt, oder die Chatnachricht ist leer"})
+    }
 
     try{
         const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
@@ -287,20 +292,27 @@ app.post("/add-chat-message", async (req, res) => {
 
 app.post("/load-chat", async (req, res) => {
 
-    const currentUserId = req.body("currentUserId");
-    const currentChatPartnerId = req.body("currentChatPartnerId");
+    const currentUserId = req.body["currentUserId"];
+    const currentChatPartnerId = req.body["currentChatPartnerId"];
 
+    console.log(`Load-Chat currentUserId = ${currentUserId} und chatPartnerId = ${currentChatPartnerId}`);
+    
     try {
         const result = db.query("SELECT * FROM chats WHERE current_user_id = $1 AND chat_partner = $2", [currentUserId, currentChatPartnerId]);
 
-        if (result.rows > 0) {
+        if (result.rows.length > 0){
+
+            const loadedChat = result.rows;
+
+            console.log("LoadedChat: ", result.rows);
+            return res.status(200).json({loadedChat});
 
         }
 
-        return res.status(200).json({});
+        return res.status(404).json({"message": "Could not find any chats with this user"});
 
     } catch (err) {
-        return res.status(500).json()
+        return res.status(500).json({"message": "Internal Server error"});
 
     }
 })
