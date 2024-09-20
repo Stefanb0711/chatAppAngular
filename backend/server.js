@@ -279,31 +279,44 @@ app.post("/add-chat-message", async (req, res) => {
     const chatWriterAndChatPartner = await db.query("SELECT current_user_id, chat_partner FROM chats WHERE (current_user_id = $1 OR chat_partner = $2) AND (current_user_id = $3 OR chat_partner = $4)", [currentUserId, currentUserId, currentChatPartnerId, currentChatPartnerId]);
 
     if (currentUserId === chatWriterAndChatPartner.rows[0]["current_user_id"]){
+
+        try{
+            const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
+
+            if (response.ok){
+                return res.status(200).json({"message": "Nachricht erfolgreich verschickt"});
+            }
+            return res.status(404).json({"message": "Konnte Nachricht nicht verschicken"});
+
+        } catch (err) {
+
+            return res.status(500).json({"message": "Internal Servere error"});
+        }
+
+
         console.log("CurrentUserId = CurrentUserId")
     } else if (currentUserId === chatWriterAndChatPartner.rows[0]["chat_partner"]){
+
+
+        try{
+            const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, chat_partner_message, message_time) VALUES ($1, $2, $3, $4)", [currentUserId, currentChatPartnerId , message, time_of_message]);
+
+            if (response.ok){
+                return res.status(200).json({"message": "Nachricht erfolgreich verschickt"});
+            }
+            return res.status(404).json({"message": "Konnte Nachricht nicht verschicken"});
+
+        } catch (err) {
+
+            return res.status(500).json({"message": "Internal Servere error"});
+        }
+
+
         console.log("CurrentUserId = ChatPartner");
 
     }
 
 
-    //console.log("ChatWriterAndChatPartner: ", chatWriterAndChatPartner.rows);
-
-    if (currentUserId === chatWriterAndChatPartner.rows){
-
-    }
-
-    try{
-        const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
-
-        if (response.ok){
-            return res.status(200).json({"message": "Nachricht erfolgreich verschickt"});
-        }
-        return res.status(404).json({"message": "Konnte Nachricht nicht verschicken"});
-
-    } catch (err) {
-
-        return res.status(500).json({"message": "Internal Servere error"});
-    }
 
 })
 
