@@ -1,9 +1,13 @@
 export interface ChatMessageModel {
   id: number | null,
   name: string,
-  chatPartner: number | null,
-  currentUserId: number | null,
-  myTextMessage: string,
-  chatPartnerMessage: string,
-  messageTime: string
+  chat_partner: number | null,
+  current_user_id: number | null,
+  my_text_message: string,
+  chat_partner_message: string,
+  message_time: string
+}
+
+export interface ChatResponse {
+  loadedChat: ChatMessageModel[];
 }
