@@ -274,6 +274,24 @@ app.post("/add-chat-message", async (req, res) => {
         return res.status(404).json({"message": "Entweder Sie sind nicht angemeldet, oder es wurde kein Chatpartner ausgewählt, oder die Chatnachricht ist leer"})
     }
 
+    //Checken ob meine currentUserId der current_user_id oder chat_partner in der datenbank entspricht
+
+    const chatWriterAndChatPartner = await db.query("SELECT current_user_id, chat_partner FROM chats WHERE (current_user_id = $1 OR chat_partner = $2) AND (current_user_id = $3 OR chat_partner = $4)", [currentUserId, currentUserId, currentChatPartnerId, currentChatPartnerId]);
+
+    if (currentUserId === chatWriterAndChatPartner.rows[0]["current_user_id"]){
+        console.log("CurrentUserId = CurrentUserId")
+    } else if (currentUserId === chatWriterAndChatPartner.rows[0]["chat_partner"]){
+        console.log("CurrentUserId = ChatPartner");
+
+    }
+
+
+    //console.log("ChatWriterAndChatPartner: ", chatWriterAndChatPartner.rows);
+
+    if (currentUserId === chatWriterAndChatPartner.rows){
+
+    }
+
     try{
         const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
 
