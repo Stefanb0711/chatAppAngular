@@ -293,8 +293,10 @@ app.post("/add-chat-message", async (req, res) => {
             return res.status(500).json({"message": "Internal Servere error"});
         }
 
+        console.log("CurrentUserId = CurrentUserId");
 
-        console.log("CurrentUserId = CurrentUserId")
+
+
     } else if (currentUserId === chatWriterAndChatPartner.rows[0]["chat_partner"]){
 
 
@@ -321,14 +323,14 @@ app.post("/add-chat-message", async (req, res) => {
 })
 
 
+
+
 app.post("/load-chat", async (req, res) => {
 
     const currentUserId = req.body["currentUserId"];
     const currentChatPartnerId = req.body["currentChatPartnerId"];
 
-    console.log(`Load Chat types of id: ${typeof(currentUserId)} ${typeof(currentChatPartnerId)} `);
-    console.log(`Load-Chat currentUserId = ${currentUserId} und chatPartnerId = ${currentChatPartnerId}`);
-    
+
     try {
         const result = await db.query("SELECT * FROM chats WHERE current_user_id = $1 AND chat_partner = $2", [currentUserId, currentChatPartnerId]);
 
@@ -336,7 +338,9 @@ app.post("/load-chat", async (req, res) => {
 
             const loadedChat = result.rows;
 
-            console.log("LoadedChat Erste NAchricht MessageTime: ", result.rows[0]["message_time"]);
+            console.log("Loaded Chat: ", loadedChat);
+
+            //console.log("LoadedChat Erste NAchricht MessageTime: ", result.rows[0]["message_time"]);
             return res.status(200).json({loadedChat});
 
         }
