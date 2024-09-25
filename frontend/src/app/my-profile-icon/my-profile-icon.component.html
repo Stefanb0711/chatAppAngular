@@ -1,0 +1,14 @@
+<div class="single-contact-container">
+  <div class="image-container" *ngIf="authServ.userLoggedIn" (click)="showMyProfile()">
+      <img class="rounded-pic"
+      src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" width="70" />
+      <p>My Account</p>
+  </div>
+</div>
+
+
+<!--
+<div *ngIf="profilePicture === ''">
+  <button>Register</button>
+</div>
+-->

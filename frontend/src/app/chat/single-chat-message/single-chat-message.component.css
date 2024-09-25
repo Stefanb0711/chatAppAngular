@@ -1,0 +1,27 @@
+.message-content {
+  /*color: white;*/
+}
+
+.text-settings {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.my-message-text-color {
+  color: gray;
+}
+
+.chat-partner-message-text-color {
+  color: antiquewhite;
+}
+
+.time-info {
+  opacity: 0.6;
+  font-size: 11px;
+}
+
+.time-info-chat-partner {
+  color: antiquewhite;
+}
+
+

@@ -1,0 +1,23 @@
+.image-container {
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 50%; /* Rundet den Container ab */
+  border: 2px solid #007bff; /* Optional: Ein Rahmen um das Bild */
+  max-width: 100%; /* Damit das Bild die verfügbare Breite nutzt */
+  height: auto;
+  position: relative;
+  display: inline-block;
+}
+
+.single-contact-container {
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+.spaced {
+  margin-bottom: 5px;
+}

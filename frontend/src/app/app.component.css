@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+}
+
+.contact-space {
+  flex: 1;
+  background-color: lightblue; /* Optional: Hintergrundfarbe für Sichtbarkeit */
+}
+
+.chat-space {
+  flex: 2;
+  background-color: lightgreen; /* Optional: Hintergrundfarbe für Sichtbarkeit */
+}

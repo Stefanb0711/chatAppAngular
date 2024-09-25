@@ -1,0 +1,35 @@
+<button (click)="openAddChatPanel($event)" type="button" class="btn btn-primary rounded-circle open-add-chat-panel">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+    <path d="M8 7V4a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2H10v3a1 1 0 0 1-2 0V9H5a1 1 0 0 1 0-2h3z"/>
+  </svg>
+</button>
+
+<div class="container-add-contact-panel"
+     *ngIf="intServ.isAddChatPanelOpened"
+     [ngStyle]="{'left.px': addChatWindowPosition.x + 25, 'bottom.px': addChatWindowPosition.y + 25}">
+
+  <div class="newsletter-form search-space">
+    <input [(ngModel)]="inputSearchValue" (ngModelChange)="onSearchForContacts($event)" type="text" class="add-new-contact-input" name="email" placeholder="Kontakt suchen"/>
+
+  </div>
+
+  <div class="contact-suggestions-space">
+        <div *ngIf="contactSuggestions === null">
+
+          <p>Keine Benutzer gefunden</p>
+
+        </div>
+
+      <div *ngIf="contactSuggestions !== null">
+        <div class="space-left" *ngFor="let contact of contactSuggestions['userData']; let userIndex = index;">
+
+          <app-single-contact-with-less-information [contactId]="contact['id']" [username]="contact['username']" ></app-single-contact-with-less-information>
+
+        </div>
+      </div>
+
+
+
+
+  </div>
+</div>

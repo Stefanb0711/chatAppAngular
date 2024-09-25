@@ -1,0 +1,14 @@
+<div
+     class="single-contact-container"
+     (click)="onAddContact()" >
+
+  <div class="image-container">
+    <img (mouseover)="isHovered = true"
+     (mouseout)="isHovered = false"
+      [ngClass]="{'hovered': isHovered}"
+     class="rounded-pic" ngSrc="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" width="70" height="70" />
+      <div *ngIf="isHovered" class="text-overlay">Adden</div>
+  </div>
+
+  <p>{{username}}</p>
+</div>
