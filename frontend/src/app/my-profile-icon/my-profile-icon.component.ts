@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../services/user-service.service";
 import {AuthService} from "../services/auth-service.service";
-import {Router} from "@angular/router";
+import {NavigationEnd, Router} from "@angular/router";
 import {NgIf, NgOptimizedImage} from "@angular/common";
+import {Subscription} from "rxjs";
+//import * as events from "node:events";
 
 @Component({
   selector: 'app-my-profile-icon',
@@ -16,20 +18,31 @@ import {NgIf, NgOptimizedImage} from "@angular/common";
 })
 export class MyProfileIconComponent implements OnInit {
 
+
+
   constructor(private userServ: UserService,
               public authServ : AuthService,
               private router : Router)  {
 
   }
 
+  private routerSubscription: Subscription = new Subscription();
+
   profilePicture: string = "";
 
 
 
   ngOnInit() {
-    
-    console.log("CurrentUser von der my-profile-icon Komponente: ", this.authServ.currentUser);
-    this.profilePicture = this.authServ.currentUser.profile_picture;
+
+    this.routerSubscription = this.router.events.subscribe(event => {
+
+      if (event instanceof NavigationEnd) {
+        this.profilePicture = this.authServ.currentUser.profile_picture;
+        console.log("CurrentUser von der my-profile-icon Komponente: ", this.authServ.currentUser);
+
+      }
+    });
+
   }
 
 

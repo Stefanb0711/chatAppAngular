@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit{
 
   constructor(private userServ: UserService, private authServ: AuthService) {
   }
+
   ngOnInit() {
     this.userServ.getOwnContact().subscribe({
       next : (res: any) => {
@@ -31,6 +32,5 @@ export class HomeComponent implements OnInit{
     });
 
   }
-
 
 }

@@ -50,7 +50,9 @@ export class LoginComponent {
         this.userServ.getOwnContact().subscribe({
           next : (res: any) => {
             //console.log("MyContact: ", res);
-            this.authServ.currentUser = res;
+
+            console.log("Response bei Login getOwnContact: ", res[0]);
+            this.authServ.currentUser = res[0];
           }, error : (err: HttpErrorResponse) => {
 
           }
