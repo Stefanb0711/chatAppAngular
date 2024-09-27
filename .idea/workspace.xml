@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Zwischenstand" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Erkennen-ob-chatpartner-oder-currentuser" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2laLXTYzuPZ6KXrMjz1w3Jrnqg5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/stefa/Downloads/AWB-ItWebsite-kontakt-exp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PyCharm 2024.1.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
+        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="" />
+      <created>1725413280166</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725413280166</updated>
+      <workItem from="1725413281216" duration="12268000" />
+      <workItem from="1725464227611" duration="47794000" />
+      <workItem from="1725895583422" duration="42282000" />
+      <workItem from="1726060731945" duration="90164000" />
+      <workItem from="1726739292454" duration="28754000" />
+      <workItem from="1726840915901" duration="15499000" />
+      <workItem from="1726921536346" duration="16000" />
+      <workItem from="1727028343402" duration="9765000" />
+      <workItem from="1727106722165" duration="67000" />
+      <workItem from="1727106874020" duration="3943000" />
+      <workItem from="1727110979095" duration="29766000" />
+      <workItem from="1727272305480" duration="4123000" />
+      <workItem from="1727276648845" duration="978000" />
+      <workItem from="1727278214528" duration="5613000" />
+    </task>
+    <task id="LOCAL-00001" summary="Zwischenstand">
+      <option name="closed" value="true" />
+      <created>1725541550165</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725541550165</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Registerpasswortfeld reagiert farblich, wenn Passwort schwach ist">
+      <option name="closed" value="true" />
+      <created>1725560489565</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725560489565</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Zwischenstand backend bekommt filterinformatioenn und kann benutzereingabe filtern">
+      <option name="closed" value="true" />
+      <created>1725903213536</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725903213536</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Anzeigen gefilterter Kontaktvorschläge funktioniert">
+      <option name="closed" value="true" />
+      <created>1725959782706</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725959782706</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Hoverfunktion für kontaktvorschläge funktioniert">
+      <option name="closed" value="true" />
+      <created>1725985467577</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725985467577</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Zwischenstand">
+      <option name="closed" value="true" />
+      <created>1726164323148</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726164323148</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Verifytoken funktioniert">
+      <option name="closed" value="true" />
+      <created>1726224133234</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726224133234</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Zwischenstand Kontaktliste konnte erfolgreich angezeigt werden">
+      <option name="closed" value="true" />
+      <created>1726502749611</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726502749611</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Während des Prozesses am bearbeiten von der Chat-funktion">
+      <option name="closed" value="true" />
+      <created>1726702048828</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726702048828</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Vor änderung von spalten Datentyp in datenbank chats">
+      <option name="closed" value="true" />
+      <created>1726757949541</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726757949541</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Zwischenstand">
+      <option name="closed" value="true" />
+      <created>1726842301049</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1726842301049</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Erkennt ob curUserIdOderChatPartner">
+      <option name="closed" value="true" />
+      <created>1726846381716</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1726846381716</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Austausch zwischen Chatter und Chatpartner funktioniert grob">
+      <option name="closed" value="true" />
+      <created>1726847955122</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1726847955122</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Zwischenstand">
+      <option name="closed" value="true" />
+      <created>1727029390789</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727029390789</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Chatunterscheidung my_message und chat_partner funktionirt größtenteils">
+      <option name="closed" value="true" />
+      <created>1727176479720</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1727176479720</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Zwischenstand">
+      <option name="closed" value="true" />
+      <created>1727278304661</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1727278304661</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Zwischenstand">
+      <option name="closed" value="true" />
+      <created>1727282933743</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1727282933743</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Erkennen-ob-chatpartner-oder-currentuser" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Registerpasswortfeld reagiert farblich, wenn Passwort schwach ist" />
+    <MESSAGE value="Zwischenstand backend bekommt filterinformatioenn und kann benutzereingabe filtern" />
+    <MESSAGE value="Anzeigen gefilterter Kontaktvorschläge funktioniert" />
+    <MESSAGE value="Hoverfunktion für kontaktvorschläge funktioniert" />
+    <MESSAGE value="Verifytoken funktioniert" />
+    <MESSAGE value="Zwischenstand Kontaktliste konnte erfolgreich angezeigt werden" />
+    <MESSAGE value="Während des Prozesses am bearbeiten von der Chat-funktion" />
+    <MESSAGE value="Vor änderung von spalten Datentyp in datenbank chats" />
+    <MESSAGE value="Erkennt ob curUserIdOderChatPartner" />
+    <MESSAGE value="Austausch zwischen Chatter und Chatpartner funktioniert grob" />
+    <MESSAGE value="Chatunterscheidung my_message und chat_partner funktionirt größtenteils" />
+    <MESSAGE value="Zwischenstand" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zwischenstand" />
+  </component>
+</project>
