@@ -21,13 +21,13 @@
       <a class="btn-getstarted" href="index.html#about">LogIn</a>-->
 
 
-      <div *ngIf="!logAndRegButtonsVisible" class="text-end">
+      <div *ngIf="!authServ.userLoggedIn" class="text-end">
           <button (click)="getLoginPage()" type="button" class="btn-getstarted">Login</button>
           <button (click)="getRegisterPage()" type="button" class="btn-getstarted">Sign-up</button>
       </div>
 
-      <div *ngIf="logAndRegButtonsVisible">
-          <button (click)="logUserOut()">Logout</button>
+      <div *ngIf="authServ.userLoggedIn">
+          <button (click)="logUserOut()" type="button" class="btn-getstarted">Logout</button>
 
       </div>
 

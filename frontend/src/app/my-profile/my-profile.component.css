@@ -5,11 +5,14 @@
   border: 2px solid #007bff; /* Optional: Ein Rahmen um das Bild */
   max-width: 100%; /* Damit das Bild die verfügbare Breite nutzt */
   height: auto;
+  align-items: center;
   position: relative;
   display: inline-block;
 }
 
 .single-contact-container {
+  display: flex;
+  flex-direction: column; /* Elemente untereinander anordnen */
   width: 100px;
   height: 100px;
   align-items: center;
@@ -19,8 +22,63 @@
 }
 
 
+.user-info {
+    text-align: center; /* Text innerhalb des Benutzerelements zentrieren */
+}
+
 .spaced {
   margin-bottom: 5px;
 }
 
+
+.image-crop {
+    width: 200px;           /* Feste Breite des Containers */
+    height: 200px;          /* Feste Höhe des Containers */
+    /*overflow: hidden;*/           /* Überflüssige Teile des Bildes ausblenden */
+    border-radius: 50%;       /* Rundet den Container ab */
+    border: 2px solid #007bff;          /* Optional: Ein Rahmen um das Bild */
+    position: relative;           /* Für die Positionierung des Bildes */
+    display: inline-block;          /* Behält die Blockstruktur bei */
+}
+
+.image-crop img {
+    width: 100%; /* Bild auf 100% der Container-Breite setzen */
+    height: 100%; /* Bild auf 100% der Container-Höhe setzen */
+    border-radius: 50%; /* Bild runden, um die Ecken anzupassen */
+    object-fit: cover; /* Bild zuschneiden und den Ausschnitt beibehalten */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.circular--portrait {
+  position: relative;
+
+  width: 200px;
+  height: 200px;
+  /*overflow: hidden;*/
+  border-radius: 50%;
+
+}
+
+.circular--portrait img {
+  width: 100%;
+  height: auto;
+}
 
