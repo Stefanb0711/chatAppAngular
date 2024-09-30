@@ -178,6 +178,9 @@ app.post("/login", async (req, res) => {
     try{
         const result = await db.query("SELECT * FROM users WHERE username = $1 AND password = $2", [loginData["usernameOrEmail"], loginData["password"]]);
 
+        console.log("Result.Rows von Login: ", result.rows[0]);
+
+        const currentUser = result.rows[0];
 
         if (result.rows.length > 0){
 
@@ -198,7 +201,7 @@ app.post("/login", async (req, res) => {
 
                     //console.log("CurrentUserId: ", currentUserId);
 
-                    return res.status(200).json({token, currentUserId});
+                    return res.status(200).json({token, currentUserId, currentUser});
 
                 }
             });

@@ -34,6 +34,9 @@ export class MyProfileIconComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log("Current User in MyProfileIcon: ", this.authServ.currentUser);
+
+
     this.routerSubscription = this.router.events.subscribe(event => {
 
       if (event instanceof NavigationEnd) {
@@ -47,8 +50,6 @@ export class MyProfileIconComponent implements OnInit {
 
 
   showMyProfile() {
-    console.log("Current User: ", this.authServ.currentUser);
-    console.log("My Profile Picture: ", this.profilePicture);
     this.router.navigate(["/my-profile"]);
   }
 

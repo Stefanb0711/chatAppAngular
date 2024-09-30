@@ -1,8 +1,10 @@
 <div class="single-contact-container">
-  <div class="image-container" *ngIf="authServ.userLoggedIn" (click)="showMyProfile()">
+  <div *ngIf="authServ.userLoggedIn" (click)="showMyProfile()">
 
+      <div class="image-crop">
+        <img [src]="authServ.currentUser.profile_picture" />
+      </div>
 
-      <img class="rounded-pic" src='https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" width="70"' />
 
        <!--[src]="authServ.currentUser.profile_picture " width="70" /> -->
       <p>My Account</p>

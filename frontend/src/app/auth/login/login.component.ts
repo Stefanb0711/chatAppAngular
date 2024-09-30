@@ -47,16 +47,9 @@ export class LoginComponent {
         console.log("Authtoken: ", this.authServ.authToken);
         console.log("Current User Id: ", this.authServ.currentUserId);
 
-        this.userServ.getOwnContact().subscribe({
-          next : (res: any) => {
-            //console.log("MyContact: ", res);
+        this.authServ.currentUser = res["currentUser"];
 
-            console.log("Response bei Login getOwnContact: ", res[0]);
-            this.authServ.currentUser = res[0];
-          }, error : (err: HttpErrorResponse) => {
 
-          }
-        });
         this.authServ.userLoggedIn = true;
         this.router.navigate(["/"]);
 
