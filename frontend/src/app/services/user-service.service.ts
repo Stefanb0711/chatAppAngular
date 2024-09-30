@@ -78,5 +78,10 @@ export class UserService {
   }
 
 
+  editUser(editData: string){
+    return this.httpServ.patch<any>("http://localhost:3001/edit-user", {editData});
+  }
+
+
 
 }

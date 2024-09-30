@@ -378,6 +378,29 @@ app.post("/get-my-user", async (req, res) => {
     }
 })
 
+app.patch("/edit-user", async (req, res) => {
+
+    if (req.body["username"] !== '' || null){
+        const result = await db.query("UPDATE users SET username = $1 WHERE id = $2", []);
+
+    } else if (req.body["email"] !== '' || null) {
+
+    } else if (req.body["password"] !== '' || null) {
+
+    } else if (req.body["profile_picture"] !== '' || null)
+
+    try {
+
+        return res.status(200)
+
+    } catch (err) {
+
+    }
+
+})
+
+
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });

@@ -20,24 +20,25 @@ import {UserModel} from "../models/User.model";
 })
 export class MyProfileIconComponent implements OnInit {
 
+  currentUserForMyProfileIcon : UserModel;
 
 
   constructor(private userServ: UserService,
               public authServ : AuthService,
               private router : Router,
               private httpServ: HttpClient) {
-
+      this.currentUserForMyProfileIcon = this.authServ.emptyUser;
   }
 
   private routerSubscription: Subscription = new Subscription();
 
-  profilePicture: string = "";
 
 
   loadUserData(){
+
     this.userServ.getOwnContact().subscribe({
       next : (res: any) => {
-        this.authServ.currentUser = res[0];
+        this.currentUserForMyProfileIcon = res[0];
       }, error : (err: HttpErrorResponse) => {
 
       }
@@ -46,7 +47,7 @@ export class MyProfileIconComponent implements OnInit {
 
   ngOnInit() {
 
-    if (this.authServ.currentUser === this.authServ.emptyUser){
+    if (this.currentUserForMyProfileIcon === this.authServ.emptyUser || null){
       setInterval(() => {
       this.loadUserData();
     }, 1000);

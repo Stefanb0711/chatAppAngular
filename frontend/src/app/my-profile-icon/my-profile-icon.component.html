@@ -2,12 +2,12 @@
   <div *ngIf="authServ.userLoggedIn" (click)="showMyProfile()" >
 
       <div class="image-crop">
-        <img [src]="authServ.currentUser.profile_picture" />
+        <img [src]="currentUserForMyProfileIcon.profile_picture" />
       </div>
 
 
        <!--[src]="authServ.currentUser.profile_picture " width="70" /> -->
-      <p>{{authServ.currentUser.username}}</p>
+      <p>{{currentUserForMyProfileIcon.username}}</p>
   </div>
 </div>
 
