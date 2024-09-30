@@ -2,12 +2,12 @@
   <div *ngIf="authServ.userLoggedIn" (click)="showMyProfile()" >
 
       <div class="image-crop">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" />
+        <img [src]="authServ.currentUser.profile_picture" />
       </div>
 
 
        <!--[src]="authServ.currentUser.profile_picture " width="70" /> -->
-      <p>My Account</p>
+      <p>{{authServ.currentUser.username}}</p>
   </div>
 </div>
 
