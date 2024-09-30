@@ -46,7 +46,7 @@ export class MyProfileIconComponent implements OnInit {
 
   ngOnInit() {
 
-    if (this.authServ.currentUser === this.authServ.emptyUser){
+    if (this.authServ.currentUser === this.authServ.emptyUser && this.authServ.userLoggedIn === true){
       setInterval(() => {
       this.loadUserData();
     }, 5000);
