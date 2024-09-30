@@ -33,7 +33,7 @@ export class AuthService {
 
   userLoggedIn: boolean = false;
 
-  //userLoggedIn: Subject<boolean> = new Subject<boolean>();
+  currentUserOb: Subject<UserModel> = new Subject<UserModel>();
 
 
   registerUser(registerData: Registration){
