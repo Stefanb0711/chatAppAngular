@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {UserService} from "../services/user-service.service";
 import {AuthService} from "../services/auth-service.service";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -31,7 +31,6 @@ export class MyProfileComponent implements OnInit{
   editModePassword: boolean = false;
 
 
-  textBearbeiten: boolean = false;
 
 
   ngOnInit() {
@@ -67,9 +66,24 @@ export class MyProfileComponent implements OnInit{
     this.editModePassword = true;
   }
 
-  /*
-  sendChanges(){
-    this.userServ.editUser().subscribe({
+  cancelEditModeProfilePicture(){
+    this.editModeProfilePicture = false
+  }
+
+  cancelEditModeUsername() {
+    this.editModeUsername = false;
+  }
+
+  cancelEditModePassword(){
+    this.editModePassword = false;
+  }
+
+  cancelEditModeEmail(){
+    this.editModeEmail = false;
+  }
+
+  sendChanges(data : any){
+    this.userServ.editUser(data).subscribe({
       next: (res: any) => {
 
       }, error : () => {
@@ -77,6 +91,6 @@ export class MyProfileComponent implements OnInit{
       }
     })
   }
-  */
+
 
 }
