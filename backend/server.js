@@ -26,7 +26,7 @@ db.connect();
 
 app.use(cors({
   origin: 'http://localhost:4200', // Erlaubt Anfragen von diesem Origin
-  methods: 'GET,POST,PUT,DELETE',
+  methods: 'GET,POST,PUT,DELETE, PATCH',
   allowedHeaders: 'Content-Type,Authorization'
 }));
 
@@ -178,7 +178,7 @@ app.post("/login", async (req, res) => {
     try{
         const result = await db.query("SELECT * FROM users WHERE username = $1 AND password = $2", [loginData["usernameOrEmail"], loginData["password"]]);
 
-        console.log("Result.Rows von Login: ", result.rows[0]);
+        //console.log("Result.Rows von Login: ", result.rows[0]);
 
         const currentUser = result.rows[0];
 
@@ -367,7 +367,7 @@ app.post("/get-my-user", async (req, res) => {
         const myUserData = result.rows;
 
         if (result.rows.length === 1){
-            console.log("MyUserData: ", myUserData);
+            //console.log("MyUserData: ", myUserData);
             return res.status(200).json(myUserData);
         }
 
@@ -380,23 +380,76 @@ app.post("/get-my-user", async (req, res) => {
 
 app.patch("/edit-user", async (req, res) => {
 
-    if (req.body["username"] !== '' || null){
-        const result = await db.query("UPDATE users SET username = $1 WHERE id = $2", []);
+    //console.log("ReqBody EditData: ", req.body["editData"]);
 
-    } else if (req.body["email"] !== '' || null) {
+    const editData = req.body["editData"];
+    const currentUserId = req.body["currentUserId"];
 
-    } else if (req.body["password"] !== '' || null) {
+    //console.log("EditDataÚsername: ", editData['username']);
 
-    } else if (req.body["profile_picture"] !== '' || null)
+    if (editData["username"] !== '' || null){
+        try {
+            const response = await db.query("UPDATE users SET username = $1 WHERE id = $2", [editData['username'], currentUserId]);
 
-    try {
+            if (response.ok){
+                console.log("Username erfolgreich bearbeitet");
+                return res.status(200);
+            }
 
+            return res.status(404);
 
-        return res.status(200)
+        } catch (err) {
+            return res.status(500).json({"message": "Internal Server Error"});
+        }
 
-    } catch (err) {
+    } else if (editData["email"] !== '' || null) {
+        try {
+            const response = await db.query("UPDATE users SET email = $1 WHERE id = $2", [editData['email'], currentUserId]);
 
-    }
+            if (response.ok){
+                console.log("Email erfolgreich bearbeitet");
+
+                return res.status(200);
+            }
+
+            return res.status(404);
+
+        } catch (err) {
+            return res.status(500).json({"message": "Internal Server Error"});
+        }
+
+    } else if (editData["password"] !== '' || null) {
+        try {
+            const response = await db.query("UPDATE users SET password = $1 WHERE id = $2", [editData['password'], currentUserId]);
+
+            if (response.ok){
+                console.log("Password erfolgreich bearbeitet");
+
+                return res.status(200);
+            }
+
+            return res.status(404);
+
+        } catch (err) {
+            return res.status(500).json({"message": "Internal Server Error"});
+        }
+
+    } else if (editData["profile_picture"] !== '' || null)
+
+        try {
+            const response = await db.query("UPDATE users SET profile_picture = $1 WHERE id = $2", [editData['profile_picture'], currentUserId]);
+
+            if (response.ok){
+                console.log("ProfilePic erfolgreich bearbeitet");
+
+                return res.status(200);
+            }
+
+            return res.status(404);
+
+        } catch (err) {
+            return res.status(500).json({"message": "Internal Server Error"});
+        }
 
 })
 

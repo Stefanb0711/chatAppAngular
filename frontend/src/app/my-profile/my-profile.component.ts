@@ -86,6 +86,11 @@ export class MyProfileComponent implements OnInit{
     this.userServ.editUser(data).subscribe({
       next: (res: any) => {
 
+        this.cancelEditModeProfilePicture();
+        this.cancelEditModeUsername();
+        this.cancelEditModePassword();
+        this.cancelEditModeEmail();
+
       }, error : () => {
 
       }
