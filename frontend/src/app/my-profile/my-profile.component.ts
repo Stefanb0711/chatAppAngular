@@ -91,7 +91,7 @@ export class MyProfileComponent implements OnInit{
         this.cancelEditModePassword();
         this.cancelEditModeEmail();
 
-      }, error : () => {
+        }, error : () => {
 
       }
     })
