@@ -1,12 +1,13 @@
 .container-add-contact-panel {
   position: fixed;
-  width: 700px;
+  width: 250px;
   height: 300px;
   background-color: lightgray;
   border: 1px solid black;
   padding: 10px;
   border-radius: 10px;
   display: flex;
+  margin: auto;
 }
 
 
@@ -16,14 +17,17 @@
 
 .contact-suggestions-space {
   flex: 1;
-  display: flex;
+  /*display: flex;*/
   flex-wrap: wrap;           /* Zeilenumbruch aktivieren */
-  justify-content: space-between; /* Abstand zwischen den Spalten */
+  justify-content: center; /* Abstand zwischen den Spalten */
   /*background-color: lightblue;*/ /* Optional: Hintergrundfarbe für Sichtbarkeit */
   overflow-y: auto;   /* Scrollen in vertikaler Richtung */
   overflow-x: hidden; /* Horizontales Scrollen verhindern */
   border: 1px solid #ccc; /* Optional: Rahmen um das div */
   padding: 10px;      /* Optional: Abstand innerhalb des div */
+  /*margin: auto;*/
+  align-items: center;
+  text-align: center;
 }
 
 .search-space {
@@ -45,9 +49,14 @@
     border: none;      /* Entferne Standardrahmen */
     border-radius: 5px; /* Abgerundete Ecken */
     cursor: pointer;   /* Cursor ändert sich zu Zeiger bei Hover */
+    background-color: var(--my-green);
 }
 
 .space-left {
   margin-left: 15px;
+}
+
+.space-centered {
+  margin: auto;
 }
 

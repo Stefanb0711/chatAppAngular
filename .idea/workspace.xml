@@ -4,40 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="My User bearbeiten Funktion löscht nicht mehr automatisch username">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Ich hab mein Searchfield scrollable gemacht">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common_http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common_http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common_http.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common_http.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_core.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_core.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_platform-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_platform-browser.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_platform-browser.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-2CVCC5YH.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-2CVCC5YH.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-5CWANZSO.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-5CWANZSO.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-IJ2OTCV2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-IJ2OTCV2.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-ORHJCG5B.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-ORHJCG5B.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-X4I2J2CT.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/chunk-X4I2J2CT.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/rxjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/rxjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/rxjs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/rxjs.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.ts" afterDir="false" />
@@ -275,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727282933743</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Ich hab mein Searchfield scrollable gemacht">
+      <option name="closed" value="true" />
+      <created>1727965752380</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1727965752380</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,6 +300,7 @@
     <MESSAGE value="Chatunterscheidung my_message und chat_partner funktionirt größtenteils" />
     <MESSAGE value="Zwischenstand" />
     <MESSAGE value="My User bearbeiten Funktion löscht nicht mehr automatisch username" />
-    <option name="LAST_COMMIT_MESSAGE" value="My User bearbeiten Funktion löscht nicht mehr automatisch username" />
+    <MESSAGE value="Ich hab mein Searchfield scrollable gemacht" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ich hab mein Searchfield scrollable gemacht" />
   </component>
 </project>

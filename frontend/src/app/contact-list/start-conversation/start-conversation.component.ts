@@ -29,7 +29,7 @@ import {WriteMessageFieldComponent} from "../../chat/write-message-field/write-m
 })
 export class StartConversationComponent{
 
-  constructor(private userServ: UserService, public intServ: InterfaceService) {
+  constructor(private userServ: UserService, public intServ: InterfaceService, public authServ: AuthService) {
 
   }
 
