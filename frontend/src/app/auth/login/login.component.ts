@@ -32,6 +32,8 @@ export class LoginComponent {
 
   loginData : LoginModel = this.emptyLogin;
 
+  errorMessage: string = "";
+
    submitLogin(){
 
 
@@ -56,7 +58,8 @@ export class LoginComponent {
         this.router.navigate(["/"]);
 
       }, error: (err: HttpErrorResponse) => {
-
+          console.log("Falsche Logindaten");
+          this.errorMessage = "Die Logindaten sind nicht korrekt. Werfen Sie nochmal einen Blick darüber";
       }
     });
   }

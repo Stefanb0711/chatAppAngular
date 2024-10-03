@@ -1,6 +1,7 @@
 .register-container {
   width: 500px;
   margin: auto;
+  text-align: center;
 }
 
 .weak-password {
@@ -13,4 +14,8 @@
 
 .strong-password {
   background-color: lightgreen;
+}
+
+.register-button {
+  background-color: var(--my-green);
 }

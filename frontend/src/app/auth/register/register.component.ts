@@ -35,6 +35,9 @@ export class RegisterComponent {
 
   registrationData : Registration = this.emptyRegistration;
 
+  errorMessage: string = "";
+
+
   passwordStrength: string | null = null;
 
   checkPasswordLength(password: string){
@@ -66,6 +69,7 @@ export class RegisterComponent {
       next: (res) => {
         this.router.navigate([""]);
       }, error: (err: HttpErrorResponse) => {
+        this.errorMessage = "Fehler bei der Registrierung. Überprüfen Sie ihre Eingabe";
         console.log(err);
       }
     });

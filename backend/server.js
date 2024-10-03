@@ -206,11 +206,17 @@ app.post("/login", async (req, res) => {
                 }
             });
 
-
-
         }
+        else {
+
+            return res.status(404).json({"message" : "Benutzer konnte nicht gefunden werden"});
+        }
+
+
+
     } catch (err){
         console.error(err);
+        return res.status(500);
     }
 
     //jwt.sign(payload, jwtSecret, {expiresIn: "1h"});
