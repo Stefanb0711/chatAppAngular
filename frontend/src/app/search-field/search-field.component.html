@@ -10,12 +10,12 @@
 
 
       <div *ngIf="!authServ.userLoggedIn" class="text-end">
-          <button (click)="getLoginPage()" type="button" class="btn-getstarted">Login</button>
-          <button (click)="getRegisterPage()" type="button" class="btn-getstarted">Sign-up</button>
+          <button (click)="getLoginPage()" type="button" class="authentification-button">Login</button>
+          <button (click)="getRegisterPage()" type="button" class="authentification-button-just-border">Sign-up</button>
       </div>
 
       <div *ngIf="authServ.userLoggedIn">
-          <button (click)="logUserOut()" type="button" class="btn-getstarted">Logout</button>
+          <button (click)="logUserOut()" type="button" class="authentification-button">Logout</button>
 
       </div>
 
