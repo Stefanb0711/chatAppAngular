@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Kontaktsuchfunktion verschönert">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Zwischenstand vor rounded div">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727972262966</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Zwischenstand vor rounded div">
+      <option name="closed" value="true" />
+      <created>1727976241780</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1727976241780</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +320,7 @@
     <MESSAGE value="My User bearbeiten Funktion löscht nicht mehr automatisch username" />
     <MESSAGE value="Ich hab mein Searchfield scrollable gemacht" />
     <MESSAGE value="Kontaktsuchfunktion verschönert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kontaktsuchfunktion verschönert" />
+    <MESSAGE value="Zwischenstand vor rounded div" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zwischenstand vor rounded div" />
   </component>
 </project>

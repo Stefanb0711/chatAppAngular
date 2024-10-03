@@ -12,16 +12,19 @@
 }
 
 .chat-partner-message-text-color {
-  color: antiquewhite;
+  color: white;
 }
 
 .time-info {
   opacity: 0.6;
-  font-size: 11px;
+  font-size: 12px;
 }
 
+
 .time-info-chat-partner {
-  color: antiquewhite;
+  color: white;
+  opacity: 0.6;
+  font-size: 12px;
 }
 
 

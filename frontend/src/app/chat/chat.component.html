@@ -30,7 +30,7 @@
       class="spaced chat-partner-message"
       *ngIf="message.chat_partner_message !== null">
       <app-single-chat-message
-        [messageTime]="message.message_time"
+        [messageTime]="message.message_time.toString()"
         [content]="message.chat_partner_message"
         [isChatPartnerMessage]="true"
       >
