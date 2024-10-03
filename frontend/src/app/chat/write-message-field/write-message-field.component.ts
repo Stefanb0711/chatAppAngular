@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ChatService} from "../../services/chat-service.service";
 import {FormsModule} from "@angular/forms";
 import {NgClass, NgOptimizedImage} from "@angular/common";
@@ -18,6 +18,8 @@ export class WriteMessageFieldComponent {
 
   inputField : string = "";
   messageTime: string | null = null;
+
+  @Input() submitButtonText: string = "";
 
   sendingMessageGreyedOut: boolean = true;
 

@@ -10,6 +10,7 @@ import {
   SingleContactWithLessInformationComponent
 } from "../../single-contact-with-less-information/single-contact-with-less-information.component";
 import {InterfaceService} from "../../services/interface-service.service";
+import {WriteMessageFieldComponent} from "../../chat/write-message-field/write-message-field.component";
 
 @Component({
   selector: 'app-start-conversation',
@@ -20,7 +21,8 @@ import {InterfaceService} from "../../services/interface-service.service";
     NgStyle,
     NgClass,
     NgForOf,
-    SingleContactWithLessInformationComponent
+    SingleContactWithLessInformationComponent,
+    WriteMessageFieldComponent
   ],
   templateUrl: './start-conversation.component.html',
   styleUrl: './start-conversation.component.css'

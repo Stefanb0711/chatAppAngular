@@ -20,11 +20,15 @@
   flex-wrap: wrap;           /* Zeilenumbruch aktivieren */
   justify-content: space-between; /* Abstand zwischen den Spalten */
   /*background-color: lightblue;*/ /* Optional: Hintergrundfarbe für Sichtbarkeit */
+  overflow-y: auto;   /* Scrollen in vertikaler Richtung */
+  overflow-x: hidden; /* Horizontales Scrollen verhindern */
+  border: 1px solid #ccc; /* Optional: Rahmen um das div */
+  padding: 10px;      /* Optional: Abstand innerhalb des div */
 }
 
 .search-space {
   flex: 1;
-  background-color: lightgreen; /* Optional: Hintergrundfarbe für Sichtbarkeit */
+  /*background-color: lightgreen;*/ /* Optional: Hintergrundfarbe für Sichtbarkeit */
 }
 
 
@@ -46,3 +50,4 @@
 .space-left {
   margin-left: 15px;
 }
+

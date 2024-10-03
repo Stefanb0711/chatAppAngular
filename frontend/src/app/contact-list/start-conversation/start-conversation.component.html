@@ -8,8 +8,9 @@
      *ngIf="intServ.isAddChatPanelOpened"
      [ngStyle]="{'left.px': addChatWindowPosition.x + 25, 'bottom.px': addChatWindowPosition.y + 25}">
 
+
   <div class="newsletter-form search-space">
-    <input [(ngModel)]="inputSearchValue" (ngModelChange)="onSearchForContacts($event)" type="text" class="add-new-contact-input" name="email" placeholder="Kontakt suchen"/>
+    <input [(ngModel)]="inputSearchValue" (ngModelChange)="onSearchForContacts($event)" type="text" class="add-new-contact-input input-bubble input-field" name="email" placeholder="Kontakt suchen"/>
 
   </div>
 
