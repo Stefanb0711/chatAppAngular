@@ -385,10 +385,15 @@ app.patch("/edit-user", async (req, res) => {
     const editData = req.body["editData"];
     const currentUserId = req.body["currentUserId"];
 
+    console.log("EditData in edit-user: ", editData);
+    console.log("Current User Id in edit-user: ", currentUserId);
+
     //console.log("EditDataÚsername: ", editData['username']);
 
-    if (editData["username"] !== '' || null){
+    if (editData["username"]){
         try {
+
+            console.log("Username wird bearbeitet");
             const response = await db.query("UPDATE users SET username = $1 WHERE id = $2", [editData['username'], currentUserId]);
 
             if (response.ok){
@@ -402,8 +407,10 @@ app.patch("/edit-user", async (req, res) => {
             return res.status(500).json({"message": "Internal Server Error"});
         }
 
-    } else if (editData["email"] !== '' || null) {
+    } else if (editData["email"]) {
         try {
+            console.log("Email wird bearbeitet");
+
             const response = await db.query("UPDATE users SET email = $1 WHERE id = $2", [editData['email'], currentUserId]);
 
             if (response.ok){
@@ -418,8 +425,11 @@ app.patch("/edit-user", async (req, res) => {
             return res.status(500).json({"message": "Internal Server Error"});
         }
 
-    } else if (editData["password"] !== '' || null) {
+    } else if (editData["password"]) {
         try {
+
+            console.log("Password wird bearbeitet");
+
             const response = await db.query("UPDATE users SET password = $1 WHERE id = $2", [editData['password'], currentUserId]);
 
             if (response.ok){
@@ -434,7 +444,7 @@ app.patch("/edit-user", async (req, res) => {
             return res.status(500).json({"message": "Internal Server Error"});
         }
 
-    } else if (editData["profile_picture"] !== '' || null)
+    } else if (editData["profile_picture"])
 
         try {
             const response = await db.query("UPDATE users SET profile_picture = $1 WHERE id = $2", [editData['profile_picture'], currentUserId]);

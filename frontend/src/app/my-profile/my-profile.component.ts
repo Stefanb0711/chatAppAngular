@@ -51,6 +51,20 @@ export class MyProfileComponent implements OnInit{
 
   }
 
+  passwordVisible: boolean = false;
+
+
+  showPassword(){
+    this.passwordVisible = true;
+  }
+
+  setPasswordNotVisible(){
+    this.passwordVisible = false;
+  }
+
+
+
+
 
   setEditModeUsername(){
     this.editModeUsername = true;
