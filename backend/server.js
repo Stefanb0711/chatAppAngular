@@ -26,7 +26,7 @@ db.connect();
 
 app.use(cors({
   origin: 'http://localhost:4200', // Erlaubt Anfragen von diesem Origin
-  methods: 'GET,POST,PUT,DELETE',
+  methods: 'GET,POST,PUT,DELETE, PATCH',
   allowedHeaders: 'Content-Type,Authorization'
 }));
 
@@ -68,7 +68,7 @@ app.post("/get-my-contacts-ids", verifyToken, async (req, res) => {
         const result = await db.query("SELECT contacts_of_user FROM users WHERE id=$1", [currentUserId]);
 
         const data = result.rows[0]["contacts_of_user"];
-        console.log("My Contacts: ", data);
+        //console.log("My Contacts: ", data);
 
         return res.status(200).json({data});
 
@@ -178,6 +178,9 @@ app.post("/login", async (req, res) => {
     try{
         const result = await db.query("SELECT * FROM users WHERE username = $1 AND password = $2", [loginData["usernameOrEmail"], loginData["password"]]);
 
+        //console.log("Result.Rows von Login: ", result.rows[0]);
+
+        const currentUser = result.rows[0];
 
         if (result.rows.length > 0){
 
@@ -198,7 +201,7 @@ app.post("/login", async (req, res) => {
 
                     //console.log("CurrentUserId: ", currentUserId);
 
-                    return res.status(200).json({token, currentUserId});
+                    return res.status(200).json({token, currentUserId, currentUser});
 
                 }
             });
@@ -274,20 +277,55 @@ app.post("/add-chat-message", async (req, res) => {
         return res.status(404).json({"message": "Entweder Sie sind nicht angemeldet, oder es wurde kein Chatpartner ausgewählt, oder die Chatnachricht ist leer"})
     }
 
-    try{
-        const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
+    //Checken ob meine currentUserId der current_user_id oder chat_partner in der datenbank entspricht
 
-        if (response.ok){
-            return res.status(200).json({"message": "Nachricht erfolgreich verschickt"});
+    const chatWriterAndChatPartner = await db.query("SELECT current_user_id, chat_partner FROM chats WHERE (current_user_id = $1 OR chat_partner = $2) AND (current_user_id = $3 OR chat_partner = $4)", [currentUserId, currentUserId, currentChatPartnerId, currentChatPartnerId]);
+
+    if (currentUserId === chatWriterAndChatPartner.rows[0]["current_user_id"]){
+
+        try{
+            const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
+
+            if (response.ok){
+                return res.status(200).json({"message": "Nachricht erfolgreich verschickt"});
+            }
+            return res.status(404).json({"message": "Konnte Nachricht nicht verschicken"});
+
+        } catch (err) {
+
+            return res.status(500).json({"message": "Internal Servere error"});
         }
-        return res.status(404).json({"message": "Konnte Nachricht nicht verschicken"});
 
-    } catch (err) {
+        console.log("CurrentUserId = CurrentUserId");
 
-        return res.status(500).json({"message": "Internal Servere error"});
+
+
+    } else if (currentUserId === chatWriterAndChatPartner.rows[0]["chat_partner"]){
+
+
+        try{
+            const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, chat_partner_message, message_time) VALUES ($1, $2, $3, $4)", [currentUserId, currentChatPartnerId , message, time_of_message]);
+
+            if (response.ok){
+                return res.status(200).json({"message": "Nachricht erfolgreich verschickt"});
+            }
+            return res.status(404).json({"message": "Konnte Nachricht nicht verschicken"});
+
+        } catch (err) {
+
+            return res.status(500).json({"message": "Internal Servere error"});
+        }
+
+
+        console.log("CurrentUserId = ChatPartner");
+
     }
 
+
+
 })
+
+
 
 
 app.post("/load-chat", async (req, res) => {
@@ -295,9 +333,7 @@ app.post("/load-chat", async (req, res) => {
     const currentUserId = req.body["currentUserId"];
     const currentChatPartnerId = req.body["currentChatPartnerId"];
 
-    console.log(`Load Chat types of id: ${typeof(currentUserId)} ${typeof(currentChatPartnerId)} `);
-    console.log(`Load-Chat currentUserId = ${currentUserId} und chatPartnerId = ${currentChatPartnerId}`);
-    
+
     try {
         const result = await db.query("SELECT * FROM chats WHERE current_user_id = $1 AND chat_partner = $2", [currentUserId, currentChatPartnerId]);
 
@@ -305,7 +341,9 @@ app.post("/load-chat", async (req, res) => {
 
             const loadedChat = result.rows;
 
-            console.log("LoadedChat Erste NAchricht MessageTime: ", result.rows[0]["message_time"]);
+            //console.log("Loaded Chat: ", loadedChat);
+
+            //console.log("LoadedChat Erste NAchricht MessageTime: ", result.rows[0]["message_time"]);
             return res.status(200).json({loadedChat});
 
         }
@@ -317,6 +355,115 @@ app.post("/load-chat", async (req, res) => {
 
     }
 })
+
+app.post("/get-my-user", async (req, res) => {
+
+    const currentUserId = req.body["currentUserId"];
+
+
+    try {
+        const result = await db.query("SELECT * FROM users WHERE id=$1", [currentUserId]);
+
+        const myUserData = result.rows;
+
+        if (result.rows.length === 1){
+            //console.log("MyUserData: ", myUserData);
+            return res.status(200).json(myUserData);
+        }
+
+        return res.status(404).json({"message": "Kein Nutzer gefunden. Nutzer ist wahrscheinlich noch nicht angemeldet"});
+
+    } catch (err) {
+        return res.status(500).json({"message": "Internal Server error"});
+    }
+})
+
+app.patch("/edit-user", async (req, res) => {
+
+    //console.log("ReqBody EditData: ", req.body["editData"]);
+
+    const editData = req.body["editData"];
+    const currentUserId = req.body["currentUserId"];
+
+    console.log("EditData in edit-user: ", editData);
+    console.log("Current User Id in edit-user: ", currentUserId);
+
+    //console.log("EditDataÚsername: ", editData['username']);
+
+    if (editData["username"]){
+        try {
+
+            console.log("Username wird bearbeitet");
+            const response = await db.query("UPDATE users SET username = $1 WHERE id = $2", [editData['username'], currentUserId]);
+
+            if (response.ok){
+                console.log("Username erfolgreich bearbeitet");
+                return res.status(200);
+            }
+
+            return res.status(404);
+
+        } catch (err) {
+            return res.status(500).json({"message": "Internal Server Error"});
+        }
+
+    } else if (editData["email"]) {
+        try {
+            console.log("Email wird bearbeitet");
+
+            const response = await db.query("UPDATE users SET email = $1 WHERE id = $2", [editData['email'], currentUserId]);
+
+            if (response.ok){
+                console.log("Email erfolgreich bearbeitet");
+
+                return res.status(200);
+            }
+
+            return res.status(404);
+
+        } catch (err) {
+            return res.status(500).json({"message": "Internal Server Error"});
+        }
+
+    } else if (editData["password"]) {
+        try {
+
+            console.log("Password wird bearbeitet");
+
+            const response = await db.query("UPDATE users SET password = $1 WHERE id = $2", [editData['password'], currentUserId]);
+
+            if (response.ok){
+                console.log("Password erfolgreich bearbeitet");
+
+                return res.status(200);
+            }
+
+            return res.status(404);
+
+        } catch (err) {
+            return res.status(500).json({"message": "Internal Server Error"});
+        }
+
+    } else if (editData["profile_picture"])
+
+        try {
+            const response = await db.query("UPDATE users SET profile_picture = $1 WHERE id = $2", [editData['profile_picture'], currentUserId]);
+
+            if (response.ok){
+                console.log("ProfilePic erfolgreich bearbeitet");
+
+                return res.status(200);
+            }
+
+            return res.status(404);
+
+        } catch (err) {
+            return res.status(500).json({"message": "Internal Server Error"});
+        }
+
+})
+
+
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);

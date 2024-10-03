@@ -1,0 +1,3 @@
+
+
+& "C:\Program Files\PostgreSQL\15\bin\psql.exe" -U postgres -d ChatApp -f backup.sql

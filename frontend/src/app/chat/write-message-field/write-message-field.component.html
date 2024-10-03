@@ -1,0 +1,8 @@
+<div class="spaced">
+  <input class="input-bubble input-field" [(ngModel)]="inputField" type="email" name="email"/>
+  <button class="input-button"
+          (click)="onSend()"
+          [ngClass]="inputField === '' ? 'greyed-out' : '' "
+          >Send</button>
+</div>
+

@@ -1,0 +1,45 @@
+<div class="chat">
+  <app-write-message-field></app-write-message-field>
+
+  <div class="chat-container" *ngFor="let message of chatServ.currentChatMessages; let messageIndex =index;">
+
+    <!--<div *ngIf="message.my_text_message !== null || '' ">
+      <app-single-chat-message class="spaced" [messageTime]="message.message_time.toString()" [content]="message.my_text_message"></app-single-chat-message>
+    </div>
+    <div *ngIf="message.chat_partner_message !== null || ''">
+      <app-single-chat-message class="chat-partner-message" [messageTime]="message.message_time" [content]="message.chat_partner_message"></app-single-chat-message>
+    </div>
+  </div>-->
+
+  <!--<div [ngClass]="{'spaced': message.my_text_message, 'chat-partner-message': !message.my_text_message}" >
+
+  </div>-->
+
+    <div
+      class="spaced chat-message"
+      *ngIf="message.my_text_message !== null">
+      <app-single-chat-message
+        [messageTime]="message.message_time.toString()"
+        [content]="message.my_text_message"
+        [isChatPartnerMessage]="false"
+      >
+      </app-single-chat-message>
+    </div>
+
+    <div
+      class="spaced chat-partner-message"
+      *ngIf="message.chat_partner_message !== null">
+      <app-single-chat-message
+        [messageTime]="message.message_time"
+        [content]="message.chat_partner_message"
+        [isChatPartnerMessage]="true"
+      >
+
+      </app-single-chat-message>
+    </div>
+
+
+  </div>
+
+</div>
+

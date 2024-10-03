@@ -16,6 +16,7 @@ export class UserService {
   myContacts: UserModel[] = [];
 
 
+
   currentChatPartnerId: number | null = null;
 
   getAllUsers(){
@@ -71,5 +72,16 @@ export class UserService {
   loadChats() {
     return this.httpServ.post<any>("http://localhost:3001/load-chat-messages", {"currentUserId": this.authServ.currentUserId, "currentChatPartnerId": this.currentChatPartnerId});
   }
+
+  getOwnContact(){
+    return this.httpServ.post<any>("http://localhost:3001/get-my-user", {"currentUserId": this.authServ.currentUserId} );
+  }
+
+
+  editUser(editData: any){
+    return this.httpServ.patch<any>("http://localhost:3001/edit-user", {editData, "currentUserId": this.authServ.currentUserId});
+  }
+
+
 
 }

@@ -1,0 +1,58 @@
+.rounded-pic {
+    width: 300px; /* Breite des Fensters */
+    height: 300px; /* Höhe des Fensters */
+    border-radius: 50%; /* Runde Form */
+    /*overflow: hidden;*/ /* Bild außerhalb des Kreises abschneiden */
+    object-fit: cover; /* Bild zuschneiden, um den Container zu füllen */
+    justify-content: center;
+    align-items: center;
+}
+
+
+.single-contact-container {
+
+  margin: 20px 20px 20px 20px;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.hovered {
+  filter: brightness(50%);
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+
+.text-overlay {
+  position: absolute;
+  top: 50%; /* Positionierung nach Bedarf */
+  left: 50%; /* Positionierung nach Bedarf */
+  transform: translate(-50%, -50%); /* Zentriert den Text */
+  color: white; /* Textfarbe */
+  font-size: 0.7em; /* Schriftgröße */
+  text-align: center; /* Zentriert den Text */
+}
+
+
+.image-crop {
+    width: 70px;           /* Feste Breite des Containers */
+    height: 70px;          /* Feste Höhe des Containers */
+    /*overflow: hidden;*/           /* Überflüssige Teile des Bildes ausblenden */
+    border-radius: 50%;       /* Rundet den Container ab */
+    border: 2px solid #007bff;          /* Optional: Ein Rahmen um das Bild */
+    position: relative;           /* Für die Positionierung des Bildes */
+    display: inline-block;          /* Behält die Blockstruktur bei */
+}
+
+.image-crop img {
+    width: 100%; /* Bild auf 100% der Container-Breite setzen */
+    height: 100%; /* Bild auf 100% der Container-Höhe setzen */
+    border-radius: 50%; /* Bild runden, um die Ecken anzupassen */
+    object-fit: cover; /* Bild zuschneiden und den Ausschnitt beibehalten */
+}
