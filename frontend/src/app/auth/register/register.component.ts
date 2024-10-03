@@ -68,9 +68,12 @@ export class RegisterComponent {
     this.authServ.registerUser(this.registrationData).subscribe({
       next: (res) => {
         this.router.navigate([""]);
-      }, error: (err: HttpErrorResponse) => {
-        this.errorMessage = "Fehler bei der Registrierung. Überprüfen Sie ihre Eingabe";
-        console.log(err);
+      }, error: (err: any) => {
+
+        //this.errorMessage = "Fehler bei der Registrierung. Überprüfen Sie ihre Eingabe";
+
+        this.errorMessage = err.error.message;
+        //console.log("Regsiter User Error Response: ", err.error.message);
       }
     });
   }

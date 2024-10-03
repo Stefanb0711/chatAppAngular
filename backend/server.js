@@ -111,10 +111,23 @@ app.post("/register", async (req, res) => {
 
     console.log("RegistrationData", registerData);
 
-    const resultSearchingExistingUsernamesOrEmails = db.query("SELECT username WHERE username = $1 OR email = $2", [])
+    //const resultSearchingExistingUsernamesOrEmails = await db.query("SELECT * WHERE username = $1 OR email = $2", [])
 
     if (registerData.password !== registerData.passwordConfirm){
         return res.status(404).json({"message" : "Passwörter stimmen nicht überein"})
+    }
+
+    //Checken ob username oder email bereits exitsiern
+    try{
+        const resultUsernameEmailDublicity = await db.query("SELECT * FROM users WHERE username = $1 OR email = $2", [registerData.username, registerData.email]);
+
+        if (resultUsernameEmailDublicity.rows.length > 0){
+            return res.status(404).json({"message": "Benutzername oder Email existieren bereits. Sie müssen andere Zugangsdaten verwenden"});
+        }
+
+    } catch (err){
+
+        return res.status(500);
     }
 
     try {
