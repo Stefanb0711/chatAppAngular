@@ -37,8 +37,6 @@ export class SingleContactComponent {
 
 
 
-
-
   showChat() {
     this.userServ.currentChatPartnerId = this.contactId;
 
