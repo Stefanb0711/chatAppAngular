@@ -508,11 +508,15 @@ app.delete("/delete-chat/:idOfUserToDelete/:id", async (req, res) => {
     console.log(`My User Id ${myUserId}, IdOfUserToDelete: ${idOfUserToDelete} `);
 
     try {
-        const response = await db.query("UPDATE users SET contacts_of_user = array_remove(contacts_of_user, idOfUserToDelete) WHERE id = ");
+    // Führe hier die Logik zum Löschen des Chats durch
+    // z. B. DB-Abfrage
 
-    } catch (err){
+        res.status(200).json({ message: "Chat erfolgreich gelöscht" });
 
-    }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Fehler beim Löschen des Chats" });
+      }
 
 })
 

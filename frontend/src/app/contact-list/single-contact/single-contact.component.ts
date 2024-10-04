@@ -52,10 +52,12 @@ export class SingleContactComponent {
 
   }
 
-  onDelete(idOfUserToDelete: number | null){
+  onDelete(event: MouseEvent, idOfUserToDelete: number | null){
+
+    event.stopPropagation();
+
     this.userServ.deleteChat(idOfUserToDelete).subscribe({
       next: (res: any) => {
-
     }, error: () => {
 
     }
