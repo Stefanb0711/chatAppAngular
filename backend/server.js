@@ -43,6 +43,7 @@ const payload = {
 let currentUserId = null;
 
 
+const defaultProfilePicture = "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
 
 function verifyToken(req, res, next) {
     const authHeader = req.headers['authorization'];
@@ -109,7 +110,11 @@ app.post("/register", async (req, res) => {
 
     const registerData = req.body;
 
-    console.log("RegistrationData", registerData);
+    const saltRounds = 10;
+
+    if (registerData.username === '' || registerData.email === '' || registerData.password === '' || registerData.passwordConfirm === ""){
+        return res.status(500).json({"message": "Füllen Sie bitte alle Felder aus"})
+    }
 
     //const resultSearchingExistingUsernamesOrEmails = await db.query("SELECT * WHERE username = $1 OR email = $2", [])
 
@@ -127,19 +132,31 @@ app.post("/register", async (req, res) => {
 
     } catch (err){
 
-        return res.status(500);
+        return res.status(500).json({"message": "Internal Server Error"});
     }
 
     try {
 
-        const response = await db.query("INSERT INTO users (username, email, password) VALUES ($1, $2, $3)", [registerData.username, registerData.email, registerData.password]);
-        if (response.ok){
-            return res.status(200).json({"message": "Benutzer erfolgreich registriert"});
+
+        const hashedPassword = await bcrypt.hash(registerData.password, saltRounds);
+
+        const response = await db.query(
+            "INSERT INTO users (username, email, password, profile_picture) VALUES ($1, $2, $3, $4)",
+            [registerData.username, registerData.email, hashedPassword, defaultProfilePicture]
+        );
+
+        // Überprüfen, ob eine Zeile erfolgreich eingefügt wurde
+        if (response.rowCount > 0) {
+            console.log("Registrierung erfolgreich");
+            return res.status(200).json({ "message": "Benutzer erfolgreich registriert" });
+        } else {
+            console.log("Fehler bei der Registrierung");
+            return res.status(400).json({ "message": "Fehler bei der Registrierung" });
         }
 
-
-    } catch(err){
-        return res.status(500).json({"message": "Internal Server Error"});
+    } catch (err) {
+        console.error("Datenbankfehler:", err);
+        return res.status(500).json({ "message": "Internal Server Error" });
     }
 
 });

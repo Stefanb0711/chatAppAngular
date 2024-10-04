@@ -36,7 +36,7 @@ export class RegisterComponent {
   registrationData : Registration = this.emptyRegistration;
 
   errorMessage: string = "";
-
+  successMessage: string = "";
 
   passwordStrength: string | null = null;
 
@@ -66,14 +66,13 @@ export class RegisterComponent {
   submitRegistration(){
 
     this.authServ.registerUser(this.registrationData).subscribe({
-      next: (res) => {
-        this.router.navigate([""]);
+      next: (res : any) => {
+
+        this.router.navigate(["/"]);
       }, error: (err: any) => {
 
-        //this.errorMessage = "Fehler bei der Registrierung. Überprüfen Sie ihre Eingabe";
-
+        console.log("Registrierung fehlgeschlagen");
         this.errorMessage = err.error.message;
-        //console.log("Regsiter User Error Response: ", err.error.message);
       }
     });
   }
