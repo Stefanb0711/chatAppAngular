@@ -83,5 +83,8 @@ export class UserService {
   }
 
 
+  deleteChat(chatPartnerIdToDelete: number | null){
+    return this.httpServ.delete<any>(`http://localhost:3001/delete-chat/${chatPartnerIdToDelete}/${this.authServ.currentUserId}`);
+  }
 
 }

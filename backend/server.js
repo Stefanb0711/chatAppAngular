@@ -500,6 +500,22 @@ app.patch("/edit-user", async (req, res) => {
 })
 
 
+app.delete("/delete-chat/:idOfUserToDelete/:id", async (req, res) => {
+
+    const idOfUserToDelete = req.params.idOfUserToDelete;
+    const myUserId = req.params.id;
+
+    console.log(`My User Id ${myUserId}, IdOfUserToDelete: ${idOfUserToDelete} `);
+
+    try {
+        const response = await db.query("UPDATE users SET contacts_of_user = array_remove(contacts_of_user, idOfUserToDelete) WHERE id = ");
+
+    } catch (err){
+
+    }
+
+})
+
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);

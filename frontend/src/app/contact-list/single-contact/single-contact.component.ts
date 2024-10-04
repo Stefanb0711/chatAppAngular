@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, signal} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {UserService} from "../../services/user-service.service";
 import {ChatMessageModel, ChatResponse} from "../../models/ChatMessage.model";
@@ -36,7 +36,6 @@ export class SingleContactComponent {
   };
 
 
-
   showChat() {
     this.userServ.currentChatPartnerId = this.contactId;
 
@@ -51,6 +50,17 @@ export class SingleContactComponent {
       }
     });
 
+  }
+
+  onDelete(idOfUserToDelete: number | null){
+    this.userServ.deleteChat(idOfUserToDelete).subscribe({
+      next: (res: any) => {
+
+    }, error: () => {
+
+    }
+
+    });
   }
 
 
