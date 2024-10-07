@@ -58,6 +58,7 @@ export class SingleContactComponent {
 
     this.userServ.deleteChat(idOfUserToDelete).subscribe({
       next: (res: any) => {
+
     }, error: () => {
 
     }

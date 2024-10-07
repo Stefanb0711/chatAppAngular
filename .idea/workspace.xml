@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Zwischenstand bei delete-Funktion">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Zugriff auf delete-Api-Route wieder möglich">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +71,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "design-anpassungen",
     "last_opened_file_path": "C:/Users/stefa/Downloads/AWB-ItWebsite-kontakt-exp",
@@ -78,8 +88,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
-        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
+        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
       </set>
     </attachedChunks>
   </component>
@@ -105,6 +114,7 @@
       <workItem from="1727272305480" duration="4123000" />
       <workItem from="1727276648845" duration="978000" />
       <workItem from="1727278214528" duration="5613000" />
+      <workItem from="1728241346496" duration="9635000" />
     </task>
     <task id="LOCAL-00001" summary="Zwischenstand">
       <option name="closed" value="true" />
@@ -314,7 +324,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728054201324</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Zugriff auf delete-Api-Route wieder möglich">
+      <option name="closed" value="true" />
+      <created>1728054863580</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728054863580</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,6 +389,7 @@
     <MESSAGE value="Angepasste Fehlermeldungen bei Registrierung" />
     <MESSAGE value="Registrierung leitet wieder zur Startseite rüber, und Passwort wird gehasht" />
     <MESSAGE value="Zwischenstand bei delete-Funktion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zwischenstand bei delete-Funktion" />
+    <MESSAGE value="Zugriff auf delete-Api-Route wieder möglich" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zugriff auf delete-Api-Route wieder möglich" />
   </component>
 </project>

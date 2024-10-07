@@ -60,3 +60,28 @@
   margin: auto;
 }
 
+.close-button {
+   position: absolute;
+  top: 10px; /* Abstand von der oberen Kante */
+  right: 10px; /* Abstand von der rechten Kante */
+  width: 30px; /* Breite des Buttons */
+  height: 30px; /* Höhe des Buttons */
+  background-color: transparent; /* Button-Farbe */
+  color: white; /* Button-Textfarbe */
+  border: none;
+  border-radius: 50%; /* Macht den Button rund */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.close-icon {
+  color: red;
+}
+
+.close-icon:hover {
+  color: darkred;
+}
+

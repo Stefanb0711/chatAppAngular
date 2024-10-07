@@ -3,7 +3,7 @@
     <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
     <span class="fs-5 fw-semibold">My Chats</span>
   </a>
-  <div *ngFor="let contact of userServ.myContacts; let userIndex = index" class="">
+  <div *ngFor="let contact of userServ.myContacts; let userIndex = index">
     <app-single-contact [username]="contact.username" [picture]="contact.profile_picture" [contactId]="contact.id"></app-single-contact>
 
   </div>

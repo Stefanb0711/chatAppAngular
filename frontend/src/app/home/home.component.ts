@@ -5,6 +5,7 @@ import {UserService} from "../services/user-service.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {UserModel} from "../models/User.model";
 import {AuthService} from "../services/auth-service.service";
+import {InterfaceService} from "../services/interface-service.service";
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ import {AuthService} from "../services/auth-service.service";
 })
 export class HomeComponent implements OnInit{
 
-  constructor(private userServ: UserService, private authServ: AuthService) {
+  constructor(private userServ: UserService, private authServ: AuthService, private intServ: InterfaceService) {
   }
 
   ngOnInit() {
@@ -31,6 +32,11 @@ export class HomeComponent implements OnInit{
       }
     });
 
+  }
+
+
+  closeModal(event?: MouseEvent){
+    this.intServ.isAddChatPanelOpened = false;
   }
 
 }

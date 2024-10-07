@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import cors from "cors";
 import {configDotenv} from "dotenv";
 import jwt from "jsonwebtoken";
+import axios from "axios";
 
 
 /*const apiKey = process.env.API_KEY;
@@ -89,7 +90,7 @@ app.post("/get-my-contacts"/*, verifyToken*/, async (req, res) => {
 
     const myContactsIds = req.body["myContactsIds"];
 
-    //console.log("MyContactsId: ", myContactsIds);
+    console.log("MyContactsIds in get-my-contacts: ", myContactsIds);
 
     try {
         const result = await db.query("SELECT * FROM users WHERE id = ANY($1::int[])", [myContactsIds]);
@@ -508,15 +509,56 @@ app.delete("/delete-chat/:idOfUserToDelete/:id", async (req, res) => {
     console.log(`My User Id ${myUserId}, IdOfUserToDelete: ${idOfUserToDelete} `);
 
     try {
-    // Führe hier die Logik zum Löschen des Chats durch
-    // z. B. DB-Abfrage
+            const response = await db.query("UPDATE users SET contacts_of_user = array_remove(contacts_of_user, $1) WHERE id = $2", [idOfUserToDelete, myUserId]);
 
-        res.status(200).json({ message: "Chat erfolgreich gelöscht" });
+            if (response.rowCount > 0) {
+                try {
 
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Fehler beim Löschen des Chats" });
-      }
+                    //const result = await axios.post("http://localhost:3001/get-my-contacts-ids");
+                    const contactIdsOfUserRes = await db.query("SELECT contacts_of_user FROM users WHERE id = $1", [myUserId]);
+
+                    //console.log("ContactsIds of User: ", contactIdsOfUser.rows[0]["contacts_of_user"]);
+
+                    const contactIdsOfUser = contactIdsOfUserRes.rows[0]["contacts_of_user"];
+
+                    if (contactIdsOfUser.rowCount > 0) {
+
+                        try {
+                            const result = await axios.post("http://localhost:3001/get-my-contacts", {"myContactsIds": contactIdsOfUser});
+
+                            const myContacts = result.rows["data"];
+
+                            console.log("MyContactsInDeleteChat: ", myContacts);
+
+                            return res.status(200).json({result});
+
+                        } catch (err) {
+
+                            console.log("Konnte nicht KOntaktdaten in delete-chat laden.")
+                            return res.status(500).json({"message": "Internal Server Error"});
+                        }
+
+                    }
+                    const contactsOfUserData = result.rows;
+
+                    console.log("Contacts of user in delete-chat: ", contactsOfUserData);
+
+
+                    //Meine Kontakte mittels der Api finden
+
+
+                } catch(err){
+
+                    console.log("Fehler beim laden der Kontaktlistenids");
+
+                    return res.status(500).json({"message": "Internal Server Error"});
+                }
+
+        }
+
+    } catch (err){
+
+    }
 
 })
 

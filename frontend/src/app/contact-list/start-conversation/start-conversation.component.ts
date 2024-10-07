@@ -33,6 +33,7 @@ export class StartConversationComponent{
 
   }
 
+  mouseIsOverClosingButton: boolean = false;
 
   //isAddChatPanelOpened: boolean = false;
 
@@ -40,6 +41,15 @@ export class StartConversationComponent{
     x: 0,
     y: 0
   };
+
+
+  setMouseOverCloseButton(){
+    this.mouseIsOverClosingButton = true;
+  }
+
+  setMouseLeaveCloseButton(){
+    this.mouseIsOverClosingButton = false;
+  }
 
   inputSearchValue: string = "";
 
