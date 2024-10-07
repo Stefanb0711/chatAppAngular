@@ -15,6 +15,8 @@
    border-radius: 10px;
 }
 
+
+
 .contact-suggestions-space {
   flex: 1;
   /*display: flex;*/
@@ -42,7 +44,7 @@
 
 
 .open-add-chat-panel {
-      position: fixed;   /* Button bleibt an der festen Position, auch beim Scrollen */
+    position: fixed;   /* Button bleibt an der festen Position, auch beim Scrollen */
     bottom: 20px;      /* Abstand vom unteren Rand (20px) */
     left: 20px;        /* Abstand vom linken Rand (20px) */
     padding: 10px 20px; /* Größe und Abstände des Buttons */
@@ -75,6 +77,10 @@
   align-items: center;
   justify-content: center;
 
+}
+
+.round-button {
+  border-radius: 50%;
 }
 
 .close-icon {

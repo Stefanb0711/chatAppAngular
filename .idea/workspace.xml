@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Closebutton hinzugefügt für contact-search fenster">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +64,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "design-anpassungen",
+    "git-widget-placeholder": "backend-änderungen-und-sockets-und-authintercepot",
     "last_opened_file_path": "C:/Users/stefa/Downloads/AWB-ItWebsite-kontakt-exp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
