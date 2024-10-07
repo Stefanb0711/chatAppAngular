@@ -61,7 +61,7 @@
 }
 
 .close-button {
-   position: absolute;
+  position: absolute;
   top: 10px; /* Abstand von der oberen Kante */
   right: 10px; /* Abstand von der rechten Kante */
   width: 30px; /* Breite des Buttons */

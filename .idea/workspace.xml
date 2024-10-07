@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Zugriff auf delete-Api-Route wieder möglich">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Closebutton hinzugefügt für contact-search fenster">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +103,7 @@
       <workItem from="1727272305480" duration="4123000" />
       <workItem from="1727276648845" duration="978000" />
       <workItem from="1727278214528" duration="5613000" />
-      <workItem from="1728241346496" duration="9635000" />
+      <workItem from="1728241346496" duration="10374000" />
     </task>
     <task id="LOCAL-00001" summary="Zwischenstand">
       <option name="closed" value="true" />
@@ -332,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728054863580</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Closebutton hinzugefügt für contact-search fenster">
+      <option name="closed" value="true" />
+      <created>1728305436130</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1728305436130</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +351,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Erkennen-ob-chatpartner-oder-currentuser" />
+                        <option value="design-anpassungen" />
                       </list>
                     </value>
                   </entry>
@@ -390,6 +387,7 @@
     <MESSAGE value="Registrierung leitet wieder zur Startseite rüber, und Passwort wird gehasht" />
     <MESSAGE value="Zwischenstand bei delete-Funktion" />
     <MESSAGE value="Zugriff auf delete-Api-Route wieder möglich" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zugriff auf delete-Api-Route wieder möglich" />
+    <MESSAGE value="Closebutton hinzugefügt für contact-search fenster" />
+    <option name="LAST_COMMIT_MESSAGE" value="Closebutton hinzugefügt für contact-search fenster" />
   </component>
 </project>
