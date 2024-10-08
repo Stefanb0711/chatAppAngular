@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Closebutton hinzugefügt für contact-search fenster">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/start-conversation/start-conversation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common_http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common_http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_platform-browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/rxjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/rxjs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/chat-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/chat-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/user-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/user-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,22 +80,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "backend-änderungen-und-sockets-und-authintercepot",
-    "last_opened_file_path": "C:/Users/stefa/Downloads/AWB-ItWebsite-kontakt-exp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
-    "ts.external.directory.path": "C:\\Users\\Stefan\\Documents\\Angular\\chatAnwendung\\chatAnwendung\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend-änderungen-und-sockets-und-authintercepot&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/stefa/Downloads/AWB-ItWebsite-kontakt-exp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Stefan\\Documents\\Angular\\chatAnwendung\\chatAnwendung\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -106,6 +126,7 @@
       <workItem from="1727276648845" duration="978000" />
       <workItem from="1727278214528" duration="5613000" />
       <workItem from="1728241346496" duration="10374000" />
+      <workItem from="1728398021823" duration="1189000" />
     </task>
     <task id="LOCAL-00001" summary="Zwischenstand">
       <option name="closed" value="true" />
@@ -331,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728305436130</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt">
+      <option name="closed" value="true" />
+      <created>1728313130749</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1728313130749</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,6 +419,7 @@
     <MESSAGE value="Zwischenstand bei delete-Funktion" />
     <MESSAGE value="Zugriff auf delete-Api-Route wieder möglich" />
     <MESSAGE value="Closebutton hinzugefügt für contact-search fenster" />
-    <option name="LAST_COMMIT_MESSAGE" value="Closebutton hinzugefügt für contact-search fenster" />
+    <MESSAGE value="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt" />
   </component>
 </project>

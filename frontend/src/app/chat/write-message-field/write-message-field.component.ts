@@ -49,14 +49,10 @@ export class WriteMessageFieldComponent {
     this.messageTime = this.getCurrentTimestamp();
     console.log("Aktuelle Uhrzeit: ", this.messageTime);
 
-    this.chatServ.sendMessage(this.inputField, this.messageTime).subscribe({
-      next : (res) => {
+    this.chatServ.sendMessage(this.inputField, this.messageTime);
 
-      }, error : (err) =>{
+    }
 
-      }
-    });
 
-  }
 
 }

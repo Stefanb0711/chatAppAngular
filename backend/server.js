@@ -6,7 +6,8 @@ import cors from "cors";
 import {configDotenv} from "dotenv";
 import jwt from "jsonwebtoken";
 import axios from "axios";
-
+import http from 'http';
+import { Server } from 'socket.io';
 
 /*const apiKey = process.env.API_KEY;
 console.log("Api Key: ", apiKey);*/
@@ -30,6 +31,69 @@ app.use(cors({
   methods: 'GET,POST,PUT,DELETE, PATCH',
   allowedHeaders: 'Content-Type,Authorization'
 }));
+
+
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: {
+    origin: 'http://localhost:4200',  // Hier kannst du die Domäne, die erlaubt ist, angeben
+    methods: ['GET', 'POST']
+  }
+});
+io.on('connection', (socket) => {
+    console.log('Ein Benutzer ist verbunden');
+
+    socket.on('chatMessage',  async (data) => {
+
+        console.log("Im Socket");
+
+        const { currentUserId, currentChatPartnerId, message, time_of_message } = data;
+        console.log(`InSocketChatMessage: CurrentUserId: ${currentUserId}, CurrentChatPartnerId: ${currentChatPartnerId}, Message: ${message}, Time of Message: ${time_of_message}`);
+
+        if (!currentUserId || !currentChatPartnerId || !message) {
+            socket.emit('errorMessage', {
+                message: 'Entweder Sie sind nicht angemeldet, oder es wurde kein Chatpartner ausgewählt, oder die Chatnachricht ist leer',
+                code: 404
+            });
+            return;
+        }
+
+        try {
+            const chatWriterAndChatPartner = await db.query("SELECT current_user_id, chat_partner FROM chats WHERE (current_user_id = $1 OR chat_partner = $2) AND (current_user_id = $3 OR chat_partner = $4)", [currentUserId, currentUserId, currentChatPartnerId, currentChatPartnerId]);
+
+            if (chatWriterAndChatPartner.rows.length > 0) {
+                if (currentUserId === chatWriterAndChatPartner.rows[0]["current_user_id"]) {
+                    // Nachricht vom Benutzer gesendet
+                    const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
+
+                    if (response.rowCount > 0) {
+                        io.emit('chatMessage', data);  // Nachricht an alle senden
+                    } else {
+                        socket.emit('errorMessage', { message: 'Konnte Nachricht nicht verschicken', code: 404 });
+                    }
+                } else if (currentUserId === chatWriterAndChatPartner.rows[0]["chat_partner"]) {
+                    // Nachricht vom Chatpartner gesendet
+                    const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, chat_partner_message, message_time) VALUES ($1, $2, $3, $4)", [currentUserId, currentChatPartnerId, message, time_of_message]);
+
+                    if (response.rowCount > 0) {
+                        io.emit('chatMessage', data);  // Nachricht an alle senden
+                    } else {
+                        socket.emit('errorMessage', { message: 'Konnte Nachricht nicht verschicken', code: 404 });
+                    }
+                }
+            } else {
+                socket.emit('errorMessage', { message: 'Kein passender Chatpartner oder Benutzer gefunden', code: 404 });
+            }
+        } catch (err) {
+            socket.emit('errorMessage', { message: 'Internal Server Error', code: 500 });
+        }
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Ein Benutzer hat die Verbindung getrennt');
+    });
+});
+
 
 app.set('view engine', 'ejs');
 //app.use(bodyParser.urlencoded({ extended: true }))
@@ -179,11 +243,11 @@ app.get("/get-all-users", verifyToken, async (req, res) => {
 app.post("/get-users-matching-search", verifyToken, async(req, res) => {
 
     const searchInput = req.body["inputValue"];
-
+    const myContactsIds = req.body["myContactsIds"];
     //console.log("SearchInput: ", searchInput);
 
     try {
-        const result = await db.query("SELECT * FROM users WHERE username ILIKE $1 ", [`%${searchInput}%`]);
+        const result = await db.query( "SELECT * FROM users WHERE username ILIKE $1 AND id NOT IN (" + myContactsIds.map((_, i) => `$${i + 2}`).join(",") + ")", [`%${searchInput}%`, ...myContactsIds]);
 
         //console.log("Result.Rows: ", result.rows);
 
@@ -302,61 +366,6 @@ app.post("/load-chat-messages", async (req, res) => {
 
 app.post("/add-chat-message", async (req, res) => {
 
-    const currentUserId = req.body["currentUserId"];
-    const currentChatPartnerId = req.body["currentChatPartnerId"];
-    const message = req.body["message"];
-    const time_of_message = req.body["time_of_message"];
-
-
-    //console.log(`CurrentUserId: ${currentUserId}, CurrentChatPartnerId: ${currentChatPartnerId}, Message: ${message}, Time of Message: ${time_of_message}`);
-
-    if (currentUserId === null || currentChatPartnerId === null || message === ""){
-        return res.status(404).json({"message": "Entweder Sie sind nicht angemeldet, oder es wurde kein Chatpartner ausgewählt, oder die Chatnachricht ist leer"})
-    }
-
-    //Checken ob meine currentUserId der current_user_id oder chat_partner in der datenbank entspricht
-
-    const chatWriterAndChatPartner = await db.query("SELECT current_user_id, chat_partner FROM chats WHERE (current_user_id = $1 OR chat_partner = $2) AND (current_user_id = $3 OR chat_partner = $4)", [currentUserId, currentUserId, currentChatPartnerId, currentChatPartnerId]);
-
-    if (currentUserId === chatWriterAndChatPartner.rows[0]["current_user_id"]){
-
-        try{
-            const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
-
-            if (response.ok){
-                return res.status(200).json({"message": "Nachricht erfolgreich verschickt"});
-            }
-            return res.status(404).json({"message": "Konnte Nachricht nicht verschicken"});
-
-        } catch (err) {
-
-            return res.status(500).json({"message": "Internal Servere error"});
-        }
-
-        console.log("CurrentUserId = CurrentUserId");
-
-
-
-    } else if (currentUserId === chatWriterAndChatPartner.rows[0]["chat_partner"]){
-
-
-        try{
-            const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, chat_partner_message, message_time) VALUES ($1, $2, $3, $4)", [currentUserId, currentChatPartnerId , message, time_of_message]);
-
-            if (response.ok){
-                return res.status(200).json({"message": "Nachricht erfolgreich verschickt"});
-            }
-            return res.status(404).json({"message": "Konnte Nachricht nicht verschicken"});
-
-        } catch (err) {
-
-            return res.status(500).json({"message": "Internal Servere error"});
-        }
-
-
-        console.log("CurrentUserId = ChatPartner");
-
-    }
 
 
 
@@ -563,7 +572,7 @@ app.delete("/delete-chat/:idOfUserToDelete/:id", async (req, res) => {
 })
 
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
 

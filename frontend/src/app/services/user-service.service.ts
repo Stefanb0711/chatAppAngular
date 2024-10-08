@@ -30,8 +30,7 @@ export class UserService {
       'Content-Type': 'application/json'// Auth-Token im Header
     });
 
-
-    return this.httpServ.post<any>("http://localhost:3001/get-users-matching-search", {inputValue}, {
+    return this.httpServ.post<any>("http://localhost:3001/get-users-matching-search", {inputValue, 'myContactsIds': this.myContactsIds}, {
       "headers": headers
     });
   }
@@ -86,5 +85,7 @@ export class UserService {
   deleteChat(chatPartnerIdToDelete: number | null){
     return this.httpServ.delete<any>(`http://localhost:3001/delete-chat/${chatPartnerIdToDelete}/${this.authServ.currentUserId}`);
   }
+
+
 
 }

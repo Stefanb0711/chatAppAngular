@@ -3,6 +3,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {UserService} from "../../services/user-service.service";
 import {ChatMessageModel, ChatResponse} from "../../models/ChatMessage.model";
 import {ChatService} from "../../services/chat-service.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-single-contact',
@@ -44,7 +45,7 @@ export class SingleContactComponent {
         this.chatServ.currentChatMessages = res["loadedChat"];
         console.log("CurrentChatMessages: ", this.chatServ.currentChatMessages);
 
-      }, error : (err) => {
+      }, error : (err: any) => {
 
         console.log("Error with Loading Chat: ", err);
       }
@@ -59,7 +60,7 @@ export class SingleContactComponent {
     this.userServ.deleteChat(idOfUserToDelete).subscribe({
       next: (res: any) => {
 
-    }, error: () => {
+    }, error: (err: HttpErrorResponse) => {
 
     }
 

@@ -27,6 +27,14 @@ export class ChatComponent implements OnInit{
 
 
     ngOnInit() {
+
+      this.chatServ.getMessages().subscribe((messageData: any) => {
+
+        console.log("Socket GetMessages message: ", messageData);
+        this.chatServ.currentChatMessages.push(messageData);
+        //this.messages.push(message);
+      })
+
       console.log("CurrentChatMessages: ", this.chatServ.currentChatMessages);
 
     }
