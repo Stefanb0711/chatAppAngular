@@ -55,3 +55,6 @@
   border-color: transparent transparent transparent gray; /* Der Zipfel zeigt nach rechts */
 }
 
+.last-message {
+  margin-bottom: 100px;
+}

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {WriteMessageFieldComponent} from "./write-message-field/write-message-field.component";
 import {ChatMessageModel} from "../models/ChatMessage.model";
@@ -20,13 +20,20 @@ import {UserService} from "../services/user-service.service";
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
-export class ChatComponent implements OnInit{
+export class ChatComponent implements OnInit, AfterViewInit{
+
+  @ViewChild("chatDiv") chatDiv!: ElementRef<HTMLDivElement>;
+  divHeight: number = 0;
    constructor(public chatServ: ChatService, public userServ: UserService) {
 
    }
 
+   ngAfterViewInit() {
+     this.divHeight = this.chatDiv.nativeElement.clientHeight;
+   }
 
-    ngOnInit() {
+
+  ngOnInit() {
 
       this.chatServ.getMessages().subscribe((messageData: any) => {
 

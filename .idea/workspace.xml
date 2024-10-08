@@ -4,31 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Ein erster Ansatz einer Socketverbindung hergestellt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common_http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_common_http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_forms.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_platform-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/@angular_router.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/rxjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/vite/deps/rxjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/chat-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/chat-service.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/user-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/user-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +108,7 @@
       <workItem from="1727276648845" duration="978000" />
       <workItem from="1727278214528" duration="5613000" />
       <workItem from="1728241346496" duration="10374000" />
-      <workItem from="1728398021823" duration="1189000" />
+      <workItem from="1728398021823" duration="4309000" />
     </task>
     <task id="LOCAL-00001" summary="Zwischenstand">
       <option name="closed" value="true" />
@@ -360,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728313130749</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Ein erster Ansatz einer Socketverbindung hergestellt">
+      <option name="closed" value="true" />
+      <created>1728400733045</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1728400733045</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +385,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Registerpasswortfeld reagiert farblich, wenn Passwort schwach ist" />
     <MESSAGE value="Zwischenstand backend bekommt filterinformatioenn und kann benutzereingabe filtern" />
     <MESSAGE value="Anzeigen gefilterter Kontaktvorschläge funktioniert" />
     <MESSAGE value="Hoverfunktion für kontaktvorschläge funktioniert" />
@@ -420,6 +409,7 @@
     <MESSAGE value="Zugriff auf delete-Api-Route wieder möglich" />
     <MESSAGE value="Closebutton hinzugefügt für contact-search fenster" />
     <MESSAGE value="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt" />
+    <MESSAGE value="Ein erster Ansatz einer Socketverbindung hergestellt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ein erster Ansatz einer Socketverbindung hergestellt" />
   </component>
 </project>

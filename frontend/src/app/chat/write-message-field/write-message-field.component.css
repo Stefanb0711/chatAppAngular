@@ -1,4 +1,5 @@
 .message-field {
+  margin-top: 20px;
   bottom: 10; /* Am unteren Rand platzieren */
   position: absolute; /* Die Komponente bleibt an der festgelegten Position */
 
