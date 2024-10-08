@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Ein erster Ansatz einer Socketverbindung hergestellt">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Einen Abstand für zum Writemessagefield für die letzte Nachricht">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/chat-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/chat-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +106,7 @@
       <workItem from="1727276648845" duration="978000" />
       <workItem from="1727278214528" duration="5613000" />
       <workItem from="1728241346496" duration="10374000" />
-      <workItem from="1728398021823" duration="4309000" />
+      <workItem from="1728398021823" duration="10677000" />
     </task>
     <task id="LOCAL-00001" summary="Zwischenstand">
       <option name="closed" value="true" />
@@ -350,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728400733045</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Einen Abstand für zum Writemessagefield für die letzte Nachricht">
+      <option name="closed" value="true" />
+      <created>1728403764750</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1728403764750</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +391,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Zwischenstand backend bekommt filterinformatioenn und kann benutzereingabe filtern" />
     <MESSAGE value="Anzeigen gefilterter Kontaktvorschläge funktioniert" />
     <MESSAGE value="Hoverfunktion für kontaktvorschläge funktioniert" />
     <MESSAGE value="Verifytoken funktioniert" />
@@ -410,6 +415,7 @@
     <MESSAGE value="Closebutton hinzugefügt für contact-search fenster" />
     <MESSAGE value="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt" />
     <MESSAGE value="Ein erster Ansatz einer Socketverbindung hergestellt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ein erster Ansatz einer Socketverbindung hergestellt" />
+    <MESSAGE value="Einen Abstand für zum Writemessagefield für die letzte Nachricht" />
+    <option name="LAST_COMMIT_MESSAGE" value="Einen Abstand für zum Writemessagefield für die letzte Nachricht" />
   </component>
 </project>

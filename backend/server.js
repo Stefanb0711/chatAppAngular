@@ -47,8 +47,8 @@ io.on('connection', (socket) => {
 
         console.log("Im Socket");
 
-        const { currentUserId, currentChatPartnerId, message, time_of_message } = data;
-        console.log(`InSocketChatMessage: CurrentUserId: ${currentUserId}, CurrentChatPartnerId: ${currentChatPartnerId}, Message: ${message}, Time of Message: ${time_of_message}`);
+        const { currentUserId, currentChatPartnerId, message, time_of_message, id } = data;
+        console.log(`InSocketChatMessage: idOfMessage: ${id} CurrentUserId: ${currentUserId}, CurrentChatPartnerId: ${currentChatPartnerId}, Message: ${message}, Time of Message: ${time_of_message}`);
 
         if (!currentUserId || !currentChatPartnerId || !message) {
             socket.emit('errorMessage', {
@@ -67,7 +67,16 @@ io.on('connection', (socket) => {
                     const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, my_text_message, message_time) VALUES ($1, $2, $3, $4)", [currentChatPartnerId, currentUserId, message, time_of_message]);
 
                     if (response.rowCount > 0) {
-                        io.emit('chatMessage', data);  // Nachricht an alle senden
+
+                        const dataToSend = {
+                            /*id: id,*/
+                            chat_partner: currentChatPartnerId,
+                            current_user_id: currentUserId,
+                            my_text_message: message,
+                            message_time: time_of_message
+                        };
+
+                        io.emit('chatMessage', dataToSend);  // Nachricht an alle senden
                     } else {
                         socket.emit('errorMessage', { message: 'Konnte Nachricht nicht verschicken', code: 404 });
                     }
@@ -76,7 +85,15 @@ io.on('connection', (socket) => {
                     const response = await db.query("INSERT INTO chats (chat_partner, current_user_id, chat_partner_message, message_time) VALUES ($1, $2, $3, $4)", [currentUserId, currentChatPartnerId, message, time_of_message]);
 
                     if (response.rowCount > 0) {
-                        io.emit('chatMessage', data);  // Nachricht an alle senden
+
+                        const dataToSend = {
+                            chat_partner: currentChatPartnerId,
+                            current_user_id: currentUserId,
+                            my_text_message: message,
+                            message_time: time_of_message
+                        };
+
+                        io.emit('chatMessage'/*, dataToSend*/);  // Nachricht an alle senden
                     } else {
                         socket.emit('errorMessage', { message: 'Konnte Nachricht nicht verschicken', code: 404 });
                     }
