@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
 
         try{
             const chatWriterAndChatPartner = await db.query("SELECT current_user_id, chat_partner FROM chats WHERE (current_user_id = $1 OR chat_partner = $2) AND (current_user_id = $3 OR chat_partner = $4)", [currentUserId, currentUserId, currentChatPartnerId, currentChatPartnerId]);
-            console.log("Wer ist der ChatWriter und wer der Chatpartner: ", chatWriterAndChatPartner.rows[0]["current_user_id"]);
+            console.log(`Wer ist currentUserId: ${chatWriterAndChatPartner.rows[0]["current_user_id"]} und wer der Chatpartner: `, chatWriterAndChatPartner.rows[0]["current_user_id"]);
 
 
             if (chatWriterAndChatPartner.rows.length > 0) {
@@ -99,7 +99,7 @@ io.on('connection', (socket) => {
                     const dataToSend = {
                         chat_partner: currentChatPartnerId,
                         current_user_id: currentUserId,
-                        my_text_message: message,
+                        chat_partner_message: message,
                         message_time: time_of_message
                     };
 
