@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Mit socket chatmessage senden funktioniert wenn man die id von current_user_id hat">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/chat-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/chat-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +105,7 @@
       <workItem from="1727278214528" duration="5613000" />
       <workItem from="1728241346496" duration="10374000" />
       <workItem from="1728398021823" duration="17167000" />
-      <workItem from="1728477469431" duration="3627000" />
+      <workItem from="1728477469431" duration="12729000" />
     </task>
     <task id="LOCAL-00001" summary="Zwischenstand">
       <option name="closed" value="true" />
@@ -365,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728410157023</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken">
+      <option name="closed" value="true" />
+      <created>1728482124912</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1728482124912</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Hoverfunktion für kontaktvorschläge funktioniert" />
     <MESSAGE value="Verifytoken funktioniert" />
     <MESSAGE value="Zwischenstand Kontaktliste konnte erfolgreich angezeigt werden" />
     <MESSAGE value="Während des Prozesses am bearbeiten von der Chat-funktion" />
@@ -425,6 +430,7 @@
     <MESSAGE value="Ein erster Ansatz einer Socketverbindung hergestellt" />
     <MESSAGE value="Einen Abstand für zum Writemessagefield für die letzte Nachricht" />
     <MESSAGE value="Mit socket chatmessage senden funktioniert wenn man die id von current_user_id hat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mit socket chatmessage senden funktioniert wenn man die id von current_user_id hat" />
+    <MESSAGE value="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken" />
   </component>
 </project>
