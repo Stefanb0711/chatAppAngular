@@ -28,7 +28,7 @@ export class ChatService {
   }*/
 
   sendMessage(message: string, time_of_message: string){
-    this.socket.emit("chatMessage", {"currentUserId": this.authServ.currentUserId, "currentChatPartnerId": this.userServ.currentChatPartnerId, message, time_of_message, id: this.currentChatMessages.length + 1});
+    this.socket.emit("chatMessage", {"currentUserId": this.authServ.currentUserId, "currentChatPartnerId": this.userServ.currentChatPartnerId, message, time_of_message});
 
   }
 
@@ -38,7 +38,7 @@ export class ChatService {
         this.socket.off('chatMessage'); // Entfernt alte Listener
       }
       this.socket.on('chatMessage', (msg : any) => {
-      console.log("Message in getMessageSocket: ", msg);
+      //console.log("Message in getMessageSocket: ", msg);
       //this.currentChatMessages.push(msg);
 
       console.log("CurrentChatMessages, nachdem neue Message zum Array hinzugefügt wurde: ", this.currentChatMessages);
