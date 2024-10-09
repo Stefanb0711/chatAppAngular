@@ -1,4 +1,4 @@
-<div>
+<div (click)="checkContent()" >
   <p class="message-content text-settings" [ngClass]="{'my-message-text-color': !isChatPartnerMessage, 'chat-partner-message-text-color': isChatPartnerMessage}">{{content}}</p>
 </div>
 <p

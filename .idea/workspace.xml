@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken, und das auch bei chats wo es noch keine Nachrichten gibt">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Wenn ich in der Rolle des Chatpartners Nachrichten verschicke, wird die Nachricht an der richtigen ChatpartnerPosition gezeigt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/write-message-field/write-message-field.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +109,7 @@
       <workItem from="1727278214528" duration="5613000" />
       <workItem from="1728241346496" duration="10374000" />
       <workItem from="1728398021823" duration="17167000" />
-      <workItem from="1728477469431" duration="14416000" />
+      <workItem from="1728477469431" duration="17858000" />
     </task>
     <task id="LOCAL-00001" summary="Zwischenstand">
       <option name="closed" value="true" />
@@ -381,7 +383,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728496650081</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Wenn ich in der Rolle des Chatpartners Nachrichten verschicke, wird die Nachricht an der richtigen ChatpartnerPosition gezeigt">
+      <option name="closed" value="true" />
+      <created>1728498327952</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1728498327952</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +426,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Zwischenstand Kontaktliste konnte erfolgreich angezeigt werden" />
     <MESSAGE value="Während des Prozesses am bearbeiten von der Chat-funktion" />
     <MESSAGE value="Vor änderung von spalten Datentyp in datenbank chats" />
     <MESSAGE value="Erkennt ob curUserIdOderChatPartner" />
@@ -441,6 +450,7 @@
     <MESSAGE value="Mit socket chatmessage senden funktioniert wenn man die id von current_user_id hat" />
     <MESSAGE value="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken" />
     <MESSAGE value="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken, und das auch bei chats wo es noch keine Nachrichten gibt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken, und das auch bei chats wo es noch keine Nachrichten gibt" />
+    <MESSAGE value="Wenn ich in der Rolle des Chatpartners Nachrichten verschicke, wird die Nachricht an der richtigen ChatpartnerPosition gezeigt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wenn ich in der Rolle des Chatpartners Nachrichten verschicke, wird die Nachricht an der richtigen ChatpartnerPosition gezeigt" />
   </component>
 </project>

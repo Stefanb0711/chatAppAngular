@@ -20,4 +20,9 @@ export class SingleChatMessageComponent implements OnInit {
 
   }
 
+  checkContent(){
+    console.log("Content: ", this.content);
+    console.log("Message Time: ", this.messageTime);
+  }
+
 }

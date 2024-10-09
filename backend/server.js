@@ -78,6 +78,7 @@ io.on('connection', (socket) => {
                         chat_partner: currentChatPartnerId,
                         current_user_id: currentUserId,
                         my_text_message: message,
+                        chat_partner_message: null,
                         message_time: time_of_message
                     };
 
@@ -100,6 +101,7 @@ io.on('connection', (socket) => {
                         chat_partner: currentChatPartnerId,
                         current_user_id: currentUserId,
                         chat_partner_message: message,
+                        my_text_message: null,
                         message_time: time_of_message
                     };
 
@@ -128,6 +130,7 @@ io.on('connection', (socket) => {
                     chat_partner: currentChatPartnerId,
                     current_user_id: currentUserId,
                     my_text_message: message,
+                    chat_partner_message: null,
                     message_time: time_of_message
                 };
 
