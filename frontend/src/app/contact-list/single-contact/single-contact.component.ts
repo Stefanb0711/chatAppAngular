@@ -1,4 +1,4 @@
-import {Component, Input, signal} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, signal} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {UserService} from "../../services/user-service.service";
 import {ChatMessageModel, ChatResponse} from "../../models/ChatMessage.model";
@@ -17,7 +17,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class SingleContactComponent {
 
 
-  constructor(private userServ: UserService, public chatServ: ChatService) {
+  constructor(private userServ: UserService, public chatServ: ChatService, private cd: ChangeDetectorRef) {
     this.chatServ.currentChatMessages = [this.emptyChat];
 
   }
@@ -60,11 +60,39 @@ export class SingleContactComponent {
     this.userServ.deleteChat(idOfUserToDelete).subscribe({
       next: (res: any) => {
 
-    }, error: (err: HttpErrorResponse) => {
+        console.log("ResMyContacts in delete: ", res["myContacts"]);
 
+        //this.userServ.myContacts = res["myContacts"];
+        //this.cd.detectChanges(); // Manuell die Change Detection anstoßen
+
+        this.userServ.myContacts = res["myContacts"]["data"];
+        /*
+        console.log("Kontakt löschen erfolgreich gewesen");
+        this.userServ.getMyContactsIds().subscribe({
+            next: (res: any) => {
+
+              this.userServ.myContactsIds = res["data"];
+              this.userServ.getMyContacts().subscribe({
+                next: (resContacts: any) => {
+                  this.userServ.myContacts = resContacts["data"];
+
+                }, error : (err) => {
+                  console.log("Fehler beim finden der Kontake");
+              }
+              });
+
+            }, error: (err) => {
+              console.log("Fehler beim finden der Kontaktids");
+            }
+          });*/
+
+    }, error: (err: HttpErrorResponse) => {
+      console.log("Fehler beim löschen des Kontakts");
     }
 
     });
+
+
   }
 
 

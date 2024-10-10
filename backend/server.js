@@ -584,27 +584,30 @@ app.delete("/delete-chat/:idOfUserToDelete/:id", async (req, res) => {
 
     try {
             const response = await db.query("UPDATE users SET contacts_of_user = array_remove(contacts_of_user, $1) WHERE id = $2", [idOfUserToDelete, myUserId]);
-
+            //console.log("Response.RowCount nach dem löschen des Benutzers: ", response.rowCount);
             if (response.rowCount > 0) {
                 try {
 
                     //const result = await axios.post("http://localhost:3001/get-my-contacts-ids");
                     const contactIdsOfUserRes = await db.query("SELECT contacts_of_user FROM users WHERE id = $1", [myUserId]);
 
-                    //console.log("ContactsIds of User: ", contactIdsOfUser.rows[0]["contacts_of_user"]);
+                    //console.log("ContactsIds of User in delete: ", contactIdsOfUserRes.rows[0]["contacts_of_user"]);
 
                     const contactIdsOfUser = contactIdsOfUserRes.rows[0]["contacts_of_user"];
 
-                    if (contactIdsOfUser.rowCount > 0) {
+                    if (contactIdsOfUser !== []) {
 
                         try {
                             const result = await axios.post("http://localhost:3001/get-my-contacts", {"myContactsIds": contactIdsOfUser});
 
-                            const myContacts = result.rows["data"];
+                            //console.log("Result von getMyContacts in Delete: ", result["data"]);
+
+
+                            const myContacts = result["data"];
 
                             console.log("MyContactsInDeleteChat: ", myContacts);
 
-                            return res.status(200).json({result});
+                            return res.status(200).json({myContacts});
 
                         } catch (err) {
 

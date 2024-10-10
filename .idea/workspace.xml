@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Closebutton hinzugefügt für contact-search fenster">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Live hinzufügen von neuen Kontakten funktioniert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/user-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/user-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/contact-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/contact-list/single-contact/single-contact.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/single-contact-with-less-information/single-contact-with-less-information.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/single-contact-with-less-information/single-contact-with-less-information.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -333,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728305436130</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Live hinzufügen von neuen Kontakten funktioniert">
+      <option name="closed" value="true" />
+      <created>1728565529208</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1728565529208</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,6 +400,7 @@
     <MESSAGE value="Zwischenstand bei delete-Funktion" />
     <MESSAGE value="Zugriff auf delete-Api-Route wieder möglich" />
     <MESSAGE value="Closebutton hinzugefügt für contact-search fenster" />
-    <option name="LAST_COMMIT_MESSAGE" value="Closebutton hinzugefügt für contact-search fenster" />
+    <MESSAGE value="Live hinzufügen von neuen Kontakten funktioniert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Live hinzufügen von neuen Kontakten funktioniert" />
   </component>
 </project>

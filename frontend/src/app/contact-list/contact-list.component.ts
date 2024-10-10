@@ -29,6 +29,11 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit() {
 
+    /*
+    setInterval(() => {
+      console.log("Meine Kontakte: ", this.userServ.myContacts);
+    }, 5000);*/
+
     console.log("OnInit von ContactListComponent");
     this.userServ.getMyContactsIds().subscribe({
       next : (res: any) => {

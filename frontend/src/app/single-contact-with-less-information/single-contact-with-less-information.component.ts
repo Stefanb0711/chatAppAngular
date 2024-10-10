@@ -36,16 +36,16 @@ export class SingleContactWithLessInformationComponent {
       this.intServ.isAddChatPanelOpened = false;
       this.userServ.addUserForChat(this.contactId).subscribe({
         next : (res: any) => {
-          console.log("Benutzer adden war erfolgreich");
+          //console.log("Benutzer adden war erfolgreich");
 
           this.userServ.getMyContactsIds().subscribe({
             next: (res: any) => {
               this.userServ.myContactsIds = res["data"];
-              console.log("Meine Kontaktids nach dem hinzufügen eines neuen Benutzers: ", this.userServ.myContactsIds);
+              //console.log("Meine Kontaktids nach dem hinzufügen eines neuen Benutzers: ", this.userServ.myContactsIds);
               this.userServ.getMyContacts().subscribe({
                 next: (resContacts: any) => {
                   this.userServ.myContacts = resContacts["data"];
-                  console.log("Meine Kontakte nach dem hinzufügen eines neuen: ", this.userServ.myContacts);
+                  //console.log("Meine Kontakte nach dem hinzufügen eines neuen: ", this.userServ.myContacts);
 
                 }, error : (err) => {
                   console.log("Fehler beim finden der Kontake");
