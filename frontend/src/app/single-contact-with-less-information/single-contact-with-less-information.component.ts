@@ -4,6 +4,7 @@ import {InterfaceService} from "../services/interface-service.service";
 import {UserService} from "../services/user-service.service";
 import {ChatMessageModel} from "../models/ChatMessage.model";
 import {ApiResponseModel} from "../models/ApiResponse.model";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-single-contact-with-less-information',
@@ -30,12 +31,35 @@ export class SingleContactWithLessInformationComponent {
     isHovered: boolean = false;
 
     onAddContact(){
+      console.log("Wir versuchen jetzt ein Kontakt zu adden");
+
       this.intServ.isAddChatPanelOpened = false;
       this.userServ.addUserForChat(this.contactId).subscribe({
-        next : (res: ApiResponseModel) => {
-          console.log(res["message"]);
-        } , error : (err: ApiResponseModel) => {
-          console.log(err["message"]);
+        next : (res: any) => {
+          console.log("Benutzer adden war erfolgreich");
+
+          this.userServ.getMyContactsIds().subscribe({
+            next: (res: any) => {
+              this.userServ.myContactsIds = res["data"];
+              console.log("Meine Kontaktids nach dem hinzufügen eines neuen Benutzers: ", this.userServ.myContactsIds);
+              this.userServ.getMyContacts().subscribe({
+                next: (resContacts: any) => {
+                  this.userServ.myContacts = resContacts["data"];
+                  console.log("Meine Kontakte nach dem hinzufügen eines neuen: ", this.userServ.myContacts);
+
+                }, error : (err) => {
+                  console.log("Fehler beim finden der Kontake");
+              }
+              });
+
+            }, error: (err) => {
+              console.log("Fehler beim finden der Kontaktids");
+            }
+          })
+
+          //console.log(res["message"]);
+        } , error : (err: HttpErrorResponse) => {
+          console.log("Fehler beim Kontakt hinzufügen");
         }
         });
 

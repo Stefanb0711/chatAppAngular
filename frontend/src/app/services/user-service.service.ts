@@ -36,7 +36,7 @@ export class UserService {
   }
 
   addUserForChat(contactId: number | null){
-    return this.httpServ.post<ApiResponseModel>("http://localhost:3001/add-user-for-chat", {contactId, "currentUserId": this.authServ.currentUserId});
+    return this.httpServ.post<any>("http://localhost:3001/add-user-for-chat", {contactId, "currentUserId": this.authServ.currentUserId});
   }
 
 

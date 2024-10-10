@@ -20,16 +20,11 @@ import {UserService} from "../services/user-service.service";
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
-export class ChatComponent implements OnInit, AfterViewInit{
+export class ChatComponent implements OnInit{
 
-  @ViewChild("chatDiv") chatDiv!: ElementRef<HTMLDivElement>;
-  divHeight: number = 0;
+
    constructor(public chatServ: ChatService, public userServ: UserService) {
 
-   }
-
-   ngAfterViewInit() {
-     this.divHeight = this.chatDiv.nativeElement.clientHeight;
    }
 
 

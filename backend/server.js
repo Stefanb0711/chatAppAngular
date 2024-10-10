@@ -401,7 +401,7 @@ app.post("/add-user-for-chat", async (req, res) => {
         );
 
         console.log("User adden hat geklappt");
-        return res.status(200);
+        return res.status(200).json({"message": "Adding User was successfull"});
     } catch (err){
         return res.status(500).json({"message": "Internal Server Error"});
     }

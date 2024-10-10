@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Wenn ich in der Rolle des Chatpartners Nachrichten verschicke, wird die Nachricht an der richtigen ChatpartnerPosition gezeigt">
+    <list default="true" id="c1df1e1b-fdfe-4176-8bd9-9caae31aa472" name="Changes" comment="Closebutton hinzugefügt für contact-search fenster">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/18.2.1/chatAnwendung/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/single-chat-message/single-chat-message.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/chat/chat.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/user-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/user-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/single-contact-with-less-information/single-contact-with-less-information.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/single-contact-with-less-information/single-contact-with-less-information.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,22 +62,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;backend-änderungen-und-sockets-und-authintercepot&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/stefa/Downloads/AWB-ItWebsite-kontakt-exp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Stefan\\Documents\\Angular\\chatAnwendung\\chatAnwendung\\frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "backend-änderungen-und-sockets-und-authintercepot",
+    "last_opened_file_path": "C:/Users/stefa/Downloads/AWB-ItWebsite-kontakt-exp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "ts.external.directory.path": "C:\\Users\\Stefan\\Documents\\Angular\\chatAnwendung\\chatAnwendung\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -108,8 +108,6 @@
       <workItem from="1727276648845" duration="978000" />
       <workItem from="1727278214528" duration="5613000" />
       <workItem from="1728241346496" duration="10374000" />
-      <workItem from="1728398021823" duration="17167000" />
-      <workItem from="1728477469431" duration="17858000" />
     </task>
     <task id="LOCAL-00001" summary="Zwischenstand">
       <option name="closed" value="true" />
@@ -335,63 +333,7 @@
       <option name="project" value="LOCAL" />
       <updated>1728305436130</updated>
     </task>
-    <task id="LOCAL-00029" summary="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt">
-      <option name="closed" value="true" />
-      <created>1728313130749</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1728313130749</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Ein erster Ansatz einer Socketverbindung hergestellt">
-      <option name="closed" value="true" />
-      <created>1728400733045</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1728400733045</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Einen Abstand für zum Writemessagefield für die letzte Nachricht">
-      <option name="closed" value="true" />
-      <created>1728403764750</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1728403764750</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Mit socket chatmessage senden funktioniert wenn man die id von current_user_id hat">
-      <option name="closed" value="true" />
-      <created>1728410157022</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1728410157023</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken">
-      <option name="closed" value="true" />
-      <created>1728482124912</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1728482124912</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken, und das auch bei chats wo es noch keine Nachrichten gibt">
-      <option name="closed" value="true" />
-      <created>1728496650081</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1728496650081</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Wenn ich in der Rolle des Chatpartners Nachrichten verschicke, wird die Nachricht an der richtigen ChatpartnerPosition gezeigt">
-      <option name="closed" value="true" />
-      <created>1728498327952</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1728498327952</updated>
-    </task>
-    <option name="localTasksCounter" value="36" />
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +355,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="backend-änderungen-und-sockets-und-authintercepot" />
+                        <option value="design-anpassungen" />
                       </list>
                     </value>
                   </entry>
@@ -426,6 +368,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Registerpasswortfeld reagiert farblich, wenn Passwort schwach ist" />
+    <MESSAGE value="Zwischenstand backend bekommt filterinformatioenn und kann benutzereingabe filtern" />
+    <MESSAGE value="Anzeigen gefilterter Kontaktvorschläge funktioniert" />
+    <MESSAGE value="Hoverfunktion für kontaktvorschläge funktioniert" />
+    <MESSAGE value="Verifytoken funktioniert" />
+    <MESSAGE value="Zwischenstand Kontaktliste konnte erfolgreich angezeigt werden" />
     <MESSAGE value="Während des Prozesses am bearbeiten von der Chat-funktion" />
     <MESSAGE value="Vor änderung von spalten Datentyp in datenbank chats" />
     <MESSAGE value="Erkennt ob curUserIdOderChatPartner" />
@@ -444,13 +392,6 @@
     <MESSAGE value="Zwischenstand bei delete-Funktion" />
     <MESSAGE value="Zugriff auf delete-Api-Route wieder möglich" />
     <MESSAGE value="Closebutton hinzugefügt für contact-search fenster" />
-    <MESSAGE value="Wenn bei Searchcontact das input-feld leer ist, werdne keine Benutzer mehr gezeigt" />
-    <MESSAGE value="Ein erster Ansatz einer Socketverbindung hergestellt" />
-    <MESSAGE value="Einen Abstand für zum Writemessagefield für die letzte Nachricht" />
-    <MESSAGE value="Mit socket chatmessage senden funktioniert wenn man die id von current_user_id hat" />
-    <MESSAGE value="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken" />
-    <MESSAGE value="Wenn man die Rolle&#10;von currentUserId hat kann man Chatnachrichten schicken, und das auch bei chats wo es noch keine Nachrichten gibt" />
-    <MESSAGE value="Wenn ich in der Rolle des Chatpartners Nachrichten verschicke, wird die Nachricht an der richtigen ChatpartnerPosition gezeigt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wenn ich in der Rolle des Chatpartners Nachrichten verschicke, wird die Nachricht an der richtigen ChatpartnerPosition gezeigt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Closebutton hinzugefügt für contact-search fenster" />
   </component>
 </project>
