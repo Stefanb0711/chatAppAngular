@@ -1,0 +1,52 @@
+<div *ngIf="authServ.userLoggedIn">
+  <button (click)="openAddChatPanel($event)" type="button" class="btn btn-primary rounded-circle open-add-chat-panel round-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+      <path d="M8 7V4a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2H10v3a1 1 0 0 1-2 0V9H5a1 1 0 0 1 0-2h3z"/>
+    </svg>
+  </button>
+
+  <div class="container-add-contact-panel"
+       *ngIf="intServ.isAddChatPanelOpened"
+       [ngStyle]="{'left.px': addChatWindowPosition.x + 25, 'bottom.px': addChatWindowPosition.y + 25}">
+
+
+
+    <div class="contact-suggestions-space">
+      <div>
+        <button (click)="closeAddChatPanel()"  class="close-button "
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle-fill close-icon" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+          </svg>
+        </button>
+
+
+      </div>
+
+
+      <div class="newsletter-form search-space">
+        <input [(ngModel)]="inputSearchValue" (ngModelChange)="onSearchForContacts($event)" type="text" class="add-new-contact-input input-bubble input-field" name="email" placeholder="Kontakt suchen"/>
+
+      </div>
+
+      <div *ngIf="contactSuggestions === null || inputSearchValue === '' " >
+
+        <p>Keine Benutzer gefunden</p>
+
+      </div>
+
+      <div *ngIf="contactSuggestions !== null &&inputSearchValue !== '' ">
+        <div class="space-centered"  *ngFor="let contact of contactSuggestions['userData']; let userIndex = index;">
+
+          <app-single-contact-with-less-information [contactId]="contact['id']" [username]="contact['username']" ></app-single-contact-with-less-information>
+
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+

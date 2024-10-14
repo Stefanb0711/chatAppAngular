@@ -1,0 +1,151 @@
+.image-container {
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 50%; /* Rundet den Container ab */
+  border: 2px solid #007bff; /* Optional: Ein Rahmen um das Bild */
+  max-width: 100%; /* Damit das Bild die verfügbare Breite nutzt */
+  height: auto;
+  align-items: center;
+  position: relative;
+  display: inline-block;
+}
+
+.single-contact-container {
+  display: flex;
+  flex-direction: column; /* Elemente untereinander anordnen */
+  width: 600px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+}
+
+
+.user-info {
+    text-align: center; /* Text innerhalb des Benutzerelements zentrieren */
+}
+
+.spaced {
+  margin-bottom: 5px;
+}
+
+
+.image-crop {
+    width: 200px;           /* Feste Breite des Containers */
+    height: 200px;          /* Feste Höhe des Containers */
+    /*overflow: hidden;*/           /* Überflüssige Teile des Bildes ausblenden */
+    border-radius: 50%;       /* Rundet den Container ab */
+    border: 2px solid #007bff;          /* Optional: Ein Rahmen um das Bild */
+    position: relative;           /* Für die Positionierung des Bildes */
+    display: inline-block;          /* Behält die Blockstruktur bei */
+}
+
+.image-crop img {
+    width: 100%; /* Bild auf 100% der Container-Breite setzen */
+    height: 100%; /* Bild auf 100% der Container-Höhe setzen */
+    border-radius: 50%; /* Bild runden, um die Ecken anzupassen */
+    object-fit: cover; /* Bild zuschneiden und den Ausschnitt beibehalten */
+}
+
+
+.message-field {
+  bottom: 0; /* Am unteren Rand platzieren */
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+
+}
+
+.input-bubble {
+  display: flex;
+  position: relative;
+  background-color: #f1f1f1;
+  padding: 10px 20px;
+  border-radius: 20px;
+  max-width: 600px; /* Begrenzte Breite, um das Inputfeld ordentlich anzuzeigen */
+  min-width: 300px; /* Verhindert, dass das Feld zu klein wird */
+  width: 100%;
+  margin: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.input-field {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 5px;
+  outline: none; /* Entfernt den Standard-Rand */
+  color: #333;
+  width: 100%; /* Bleibt bei 100% der verfügbaren Breite */
+  min-width: 300px; /* Setzt eine Mindestbreite */
+  max-width: 100%; /* Begrenze es innerhalb des übergeordneten Containers */
+}
+
+.input-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.input-button-cancel {
+  background-color: #3d4348;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.input-button:hover {
+  background-color: #0056b3;
+}
+
+
+.button-field {
+  border-radius: 10px;
+}
+
+.greyed-out {
+  opacity: 0.5;
+}
+
+.spaced {
+  margin-bottom: 30px;
+}
+
+
+.input-with-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-button input {
+  padding-right: 40px; /* Platz für den Button */
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.input-with-button button.show-password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.password-edit-bubble {
+  display: flex;
+}

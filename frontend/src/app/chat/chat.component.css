@@ -1,0 +1,60 @@
+.chat-container {
+   display: flex;
+    flex-direction: column;
+}
+
+.spaced {
+  margin-bottom: 50px;
+}
+
+.chat {
+  position: relative;
+}
+
+.chat-message {
+  position: relative;
+  background-color: #e0f7fa; /* Heller Hintergrund für die Sprechblase */
+  padding: 10px 20px;
+  border-radius: 20px;
+  max-width: 60%; /* Begrenzung der Breite */
+  margin: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+}
+
+.chat-message::after {
+  content: '';
+  position: absolute;
+  top: 10px; /* Vertikale Position des Zipfels */
+  left: -17.5px; /* Positionierung auf der linken Seite */
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #e0f7fa transparent transparent; /* Farbgebung für den Zipfel */
+}
+
+
+.chat-partner-message {
+  position: relative;
+  align-self: flex-end;
+  background-color: gray;
+  margin-bottom: 50px;
+
+  padding: 10px 20px;
+  border-radius: 20px;
+  max-width: 60%; /* Begrenzung der Breite */
+  margin: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+}
+
+.chat-partner-message::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: -17.5px; /* Der Zipfel wird rechts außerhalb der Blase positioniert */
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent gray; /* Der Zipfel zeigt nach rechts */
+}
+
+.last-message {
+  margin-bottom: 100px;
+}

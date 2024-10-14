@@ -1,0 +1,19 @@
+<div class="single-contact-container">
+  <div *ngIf="authServ.userLoggedIn" (click)="showMyProfile()" (mouseleave)="loadUserData()" >
+
+      <div class="image-crop">
+        <img *ngIf="authServ.currentUser?.profile_picture" [src]="authServ.currentUser.profile_picture"  width="50" height="50" />
+      </div>
+
+
+       <!--[src]="authServ.currentUser.profile_picture " width="70" /> -->
+      <p *ngif="authServ.currentUser?.username" >{{authServ.currentUser.username}}</p>
+  </div>
+</div>
+
+
+<!--
+<div *ngIf="profilePicture === ''">
+  <button>Register</button>
+</div>
+-->

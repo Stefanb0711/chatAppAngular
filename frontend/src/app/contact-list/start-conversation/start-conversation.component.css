@@ -1,0 +1,93 @@
+.container-add-contact-panel {
+  position: fixed;
+  width: 250px;
+  height: 300px;
+  background-color: lightgray;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  margin: auto;
+}
+
+
+.add-new-contact-input {
+   border-radius: 10px;
+}
+
+
+
+.contact-suggestions-space {
+  flex: 1;
+  /*display: flex;*/
+  flex-wrap: wrap;           /* Zeilenumbruch aktivieren */
+  justify-content: center; /* Abstand zwischen den Spalten */
+  /*background-color: lightblue;*/ /* Optional: Hintergrundfarbe für Sichtbarkeit */
+  overflow-y: auto;   /* Scrollen in vertikaler Richtung */
+  overflow-x: hidden; /* Horizontales Scrollen verhindern */
+  border: 1px solid #ccc; /* Optional: Rahmen um das div */
+  padding: 10px;      /* Optional: Abstand innerhalb des div */
+  /*margin: auto;*/
+  align-items: center;
+  text-align: center;
+}
+
+.search-space {
+  flex: 1;
+  /*background-color: lightgreen;*/ /* Optional: Hintergrundfarbe für Sichtbarkeit */
+}
+
+
+.input-margin {
+  margin-left: 20px;
+}
+
+
+.open-add-chat-panel {
+    position: fixed;   /* Button bleibt an der festen Position, auch beim Scrollen */
+    bottom: 20px;      /* Abstand vom unteren Rand (20px) */
+    left: 20px;        /* Abstand vom linken Rand (20px) */
+    padding: 10px 20px; /* Größe und Abstände des Buttons */
+    border: none;      /* Entferne Standardrahmen */
+    border-radius: 5px; /* Abgerundete Ecken */
+    cursor: pointer;   /* Cursor ändert sich zu Zeiger bei Hover */
+    background-color: var(--my-green);
+}
+
+.space-left {
+  margin-left: 15px;
+}
+
+.space-centered {
+  margin: auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px; /* Abstand von der oberen Kante */
+  right: 10px; /* Abstand von der rechten Kante */
+  width: 30px; /* Breite des Buttons */
+  height: 30px; /* Höhe des Buttons */
+  background-color: transparent; /* Button-Farbe */
+  color: white; /* Button-Textfarbe */
+  border: none;
+  border-radius: 50%; /* Macht den Button rund */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.round-button {
+  border-radius: 50%;
+}
+
+.close-icon {
+  color: red;
+}
+
+.close-icon:hover {
+  color: darkred;
+}
+

@@ -1,0 +1,40 @@
+/*.profile-picture {
+  display: flex;
+  justify-content: flex-end;
+}*/
+
+
+.authentification-button {
+  background-color: var(--my-green);
+  color: white;              /* Textfarbe */
+  padding: 10px 20px;        /* Innenabstand */
+  border: none;              /* Ohne Rahmen */
+  border-radius: 15px;       /* Abgerundete Ecken */
+  cursor: pointer;           /* Zeiger bei Hover */
+  font-size: 16px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+.authentification-button-just-border {
+  background-color: white;
+  color: var(--my-green);              /* Textfarbe */
+  padding: 10px 20px;        /* Innenabstand */
+  border-radius: 15px;       /* Abgerundete Ecken */
+  cursor: pointer;           /* Zeiger bei Hover */
+  font-size: 16px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: 2px solid #077b8a;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.authentification-button-just-border:hover {
+  background-color: #077b8a; /* Hintergrund füllen bei Hover */
+  color: white; /* Textfarbe ändern */
+}
+
+.authentification-button:hover {
+  background-color: #065f6b; /* Dunklere Version für Hover */
+}

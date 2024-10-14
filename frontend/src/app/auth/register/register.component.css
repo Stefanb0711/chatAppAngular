@@ -1,0 +1,21 @@
+.register-container {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.weak-password {
+  background-color: lightcoral;
+}
+
+.medium-password {
+  background-color: lightyellow;
+}
+
+.strong-password {
+  background-color: lightgreen;
+}
+
+.register-button {
+  background-color: var(--my-green);
+}

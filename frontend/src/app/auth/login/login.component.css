@@ -1,0 +1,10 @@
+.login-container {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+
+.login-button {
+  background-color: var(--my-green);
+}

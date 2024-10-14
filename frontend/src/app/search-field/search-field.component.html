@@ -1,0 +1,29 @@
+<header id="header" class="header d-flex align-items-center spaced">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">MyChat</h1>
+      </a>
+
+      <!--<a class="btn-getstarted" href="index.html#about">Register</a>
+      <a class="btn-getstarted" href="index.html#about">LogIn</a>-->
+
+
+      <div *ngIf="!authServ.userLoggedIn" class="text-end">
+          <button (click)="getLoginPage()" type="button" class="authentification-button">Login</button>
+          <button (click)="getRegisterPage()" type="button" class="authentification-button-just-border">Sign-up</button>
+      </div>
+
+      <div *ngIf="authServ.userLoggedIn">
+          <button (click)="logUserOut()" type="button" class="authentification-button">Logout</button>
+
+      </div>
+
+
+    <div class="profile-picture">
+      <app-my-profile-icon></app-my-profile-icon>
+    </div>
+
+
+    </div>
+  </header>

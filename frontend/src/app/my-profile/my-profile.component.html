@@ -1,0 +1,102 @@
+<div class="single-contact-container">
+
+    <div class="d-flex w-100 align-items-center single-contact-container">
+
+
+      <div>
+
+        <div class="image-crop user-info" *ngIf="!editModeProfilePicture" (click)="setEditModeProfilePicture()">
+          <img [src]="authServ.currentUser.profile_picture"/>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+          </svg>
+
+        </div>
+
+        <div *ngIf="editModeProfilePicture">
+          <input class="input-bubble input-field" [(ngModel)]="authServ.currentUser.profile_picture" />
+          <button class="input-button" (click)="sendChanges({'profile_picture': authServ.currentUser.profile_picture})">Edit</button>
+          <button class="input-button-cancel" (click)="cancelEditModeProfilePicture()" >Cancel</button>
+        </div>
+
+      </div>
+
+
+      <div>
+        <div class="user-info" *ngIf="!editModeUsername" (click)="setEditModeUsername()">
+          <strong class="mb-1">Username</strong> <p>{{authServ.currentUser.username}}
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+          </svg>
+        </p>
+
+        </div>
+
+        <div class="input-bubble" *ngIf="editModeUsername">
+          <input class="input-bubble input-field" [(ngModel)]="authServ.currentUser.username" />
+          <button class="input-button" (click)="sendChanges({'username': authServ.currentUser.username})">Edit</button>
+          <button class="input-button-cancel" (click)="cancelEditModeUsername()" >Cancel</button>
+
+        </div>
+      </div>
+
+      <!--Password Input -->
+
+      <div>
+        <div class="user-info" *ngIf="!editModePassword" (click)="setEditModePassword()">
+          <strong class="mb-1">Password</strong> <p>{{authServ.currentUser.password}}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+          </svg>
+        </p>
+        </div>
+
+        <div *ngIf="editModePassword" class="password-edit-bubble">
+          <div class="input-with-button">
+            <input type="password" id="password" class="input-bubble input-field" [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="authServ.currentUser.password" />
+
+            <button class="show-password" (mousedown)="showPassword()" (mouseup)="setPasswordNotVisible()" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+              </svg>
+
+            </button>
+
+          </div>
+          <button class="input-button" (click)="sendChanges({'password': authServ.currentUser.password})">Edit</button>
+          <button class="input-button-cancel" (click)="cancelEditModePassword()" >Cancel</button>
+        </div>
+
+
+
+      </div>
+
+
+
+
+      <div>
+        <div>
+          <div class="user-info" *ngIf="!editModeEmail" (click)="setEditModeEmail()">
+            <strong class="mb-1">Email</strong> <p>{{authServ.currentUser.email}}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+              <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+            </svg>
+          </p>
+          </div>
+
+          <div class="input-bubble" *ngIf="editModeEmail">
+            <input class="input-bubble input-field" [(ngModel)]="authServ.currentUser.email" />
+            <button class="input-button" (click)="sendChanges({'email': authServ.currentUser.email})">Edit</button>
+            <button class="input-button-cancel" (click)="cancelEditModeEmail()" >Cancel</button>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+</div>

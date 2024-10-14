@@ -1,0 +1,27 @@
+.contact-space {
+  flex: 1;
+  /* Optional: Hintergrundfarbe für Sichtbarkeit */
+}
+
+.chat-space {
+  flex: 2;
+  background-image: "https://png.pngtree.com/thumb_back/fw800/background/20230610/pngtree-free-hd-wallpapers-of-the-moon-and-autumn-leaves-on-the-image_2956841.jpg"; /* Optional: Hintergrundfarbe für Sichtbarkeit */
+}
+
+.container {
+  display:flex;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
