@@ -64,6 +64,8 @@ export class SearchFieldComponent implements OnInit {
 
   logUserOut() {
     this.authServ.userLoggedIn = false;
+    this.authServ.authToken = null;
+    localStorage.setItem("token", "");
     //this.authServ.userLoggedIn.next(!this.logAndRegButtonsVisible);
   }
 

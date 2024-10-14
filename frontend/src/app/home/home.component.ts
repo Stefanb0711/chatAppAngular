@@ -19,10 +19,37 @@ import {InterfaceService} from "../services/interface-service.service";
 })
 export class HomeComponent implements OnInit{
 
+  currentToken: string | null = null;
+
   constructor(private userServ: UserService, private authServ: AuthService, private intServ: InterfaceService) {
+
   }
 
   ngOnInit() {
+
+    console.log("Aktueller Authtoken: ", this.authServ.authToken);
+
+    this.currentToken = localStorage.getItem("token");
+
+    if (this.currentToken !== "") {
+      this.authServ.userLoggedIn = true;
+
+    }
+
+    if (this.authServ.userLoggedIn !== false){
+
+      try {
+
+        this.authServ.authToken = localStorage.getItem("token");
+        //console.log("Aktueller Authtoken: ", this.authServ.authToken);
+      } catch (err) {
+        console.log("Kein Token vorhanden");
+      }
+
+    }
+
+    //console.log("CurrentToken: ", this.currentToken);
+
     this.userServ.getOwnContact().subscribe({
       next : (res: any) => {
         console.log("MyContact: ", res);

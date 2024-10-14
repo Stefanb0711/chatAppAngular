@@ -20,10 +20,14 @@ export class UserService {
   currentChatPartnerId: number | null = null;
 
   getAllUsers(){
+    this.authServ.authToken = localStorage.getItem("token");
+
+
     return this.httpServ.get<any[]>("http://localhost:3001/get-all-users");
   }
 
   getSpecificUsers(inputValue: string){
+    this.authServ.authToken = localStorage.getItem("token");
 
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.authServ.authToken}`,
@@ -36,11 +40,23 @@ export class UserService {
   }
 
   addUserForChat(contactId: number | null){
-    return this.httpServ.post<any>("http://localhost:3001/add-user-for-chat", {contactId, "currentUserId": this.authServ.currentUserId});
+    this.authServ.authToken = localStorage.getItem("token");
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    },
+      );
+
+    return this.httpServ.post<any>("http://localhost:3001/add-user-for-chat", {contactId, "currentUserId": this.authServ.currentUserId},
+      {
+      headers
+    });
   }
 
 
   getMyContactsIds(){
+    this.authServ.authToken = localStorage.getItem("token");
 
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.authServ.authToken}`,
@@ -54,36 +70,97 @@ export class UserService {
 
 
   getMyContacts() {
+    this.authServ.authToken = localStorage.getItem("token");
 
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    });
     /*const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.authServ.authToken}`,
       'Content-Type': 'application/json'// Auth-Token im Header
     });*/
 
-    return this.httpServ.post<any>("http://localhost:3001/get-my-contacts", {"myContactsIds": this.myContactsIds} );
+    return this.httpServ.post<any>("http://localhost:3001/get-my-contacts", {"myContactsIds": this.myContactsIds},
+      {
+      headers
+    });
   }
 
   getCurrentOwnUserId(){
-    return this.httpServ.get<any>("http://localhost:3001/get-current-own-user-id");
+
+    this.authServ.authToken = localStorage.getItem("token");
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    });
+
+    return this.httpServ.get<any>("http://localhost:3001/get-current-own-user-id",
+      {
+      headers
+    });
   }
 
 
   loadChats() {
-    return this.httpServ.post<any>("http://localhost:3001/load-chat-messages", {"currentUserId": this.authServ.currentUserId, "currentChatPartnerId": this.currentChatPartnerId});
+    this.authServ.authToken = localStorage.getItem("token");
+
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    });
+
+    return this.httpServ.post<any>("http://localhost:3001/load-chat-messages", {"currentUserId": this.authServ.currentUserId, "currentChatPartnerId": this.currentChatPartnerId},
+      {
+      headers
+    });
   }
 
   getOwnContact(){
-    return this.httpServ.post<any>("http://localhost:3001/get-my-user", {"currentUserId": this.authServ.currentUserId} );
+    this.authServ.authToken = localStorage.getItem("token");
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    });
+
+    return this.httpServ.post<any>("http://localhost:3001/get-my-user", {"currentUserId": this.authServ.currentUserId},
+      {
+      headers
+    });
   }
 
 
   editUser(editData: any){
-    return this.httpServ.patch<any>("http://localhost:3001/edit-user", {editData, "currentUserId": this.authServ.currentUserId});
+    this.authServ.authToken = localStorage.getItem("token");
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    });
+
+    return this.httpServ.patch<any>("http://localhost:3001/edit-user", {editData, "currentUserId": this.authServ.currentUserId},
+      {
+      headers
+    });
   }
 
 
   deleteChat(chatPartnerIdToDelete: number | null){
-    return this.httpServ.delete<any>(`http://localhost:3001/delete-chat/${chatPartnerIdToDelete}/${this.authServ.currentUserId}`);
+
+    this.authServ.authToken = localStorage.getItem("token");
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+    });
+
+    return this.httpServ.delete<any>(`http://localhost:3001/delete-chat/${chatPartnerIdToDelete}/${this.authServ.currentUserId}`,
+      {
+      headers
+    });
   }
 
 

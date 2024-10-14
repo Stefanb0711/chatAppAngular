@@ -46,6 +46,9 @@ export class LoginComponent {
         this.authServ.authToken = res["token"];
         this.authServ.currentUserId = res["currentUserId"];
 
+        localStorage.setItem("token", res["token"]);
+
+
         console.log("Authtoken: ", this.authServ.authToken);
         console.log("Current User Id: ", this.authServ.currentUserId);
 

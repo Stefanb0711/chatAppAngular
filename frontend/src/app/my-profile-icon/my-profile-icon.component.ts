@@ -36,6 +36,8 @@ export class MyProfileIconComponent implements OnInit {
 
   loadUserData(){
 
+
+
     this.userServ.getOwnContact().subscribe({
       next : (res: any) => {
         this.currentUserForMyProfileIcon = res[0];

@@ -24,7 +24,7 @@ export class AuthService {
   };
 
 
-  authToken: string = "";
+  authToken: string | null = null;
 
   currentUserId: number | null = null;
 
