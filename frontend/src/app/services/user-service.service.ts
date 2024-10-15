@@ -96,8 +96,7 @@ export class UserService {
       'Content-Type': 'application/json'// Auth-Token im Header
     });
 
-    return this.httpServ.get<any>("http://localhost:3001/get-current-own-user-id",
-      {
+    return this.httpServ.get<any>("http://localhost:3001/get-current-own-user-id", {
       headers
     });
   }
