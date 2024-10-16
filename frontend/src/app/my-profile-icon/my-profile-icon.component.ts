@@ -36,6 +36,8 @@ export class MyProfileIconComponent implements OnInit {
 
   loadUserData(){
 
+    /*this.authServ.currentUser = this.authServ.currentUser[0];*/
+    console.log("CurrentUser bevor Daten aus Api geladen wurden: ", this.authServ.currentUser);
 
 
     this.userServ.getOwnContact().subscribe({
@@ -50,10 +52,10 @@ export class MyProfileIconComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    /*
     if (this.authServ.currentUser){
       this.loadUserData();
-    }
+    }*/
 
   }
 

@@ -52,7 +52,19 @@ export class LoginComponent {
         console.log("Authtoken: ", this.authServ.authToken);
         console.log("Current User Id: ", this.authServ.currentUserId);
 
-        this.authServ.currentUser = res["currentUser"];
+        this.authServ.currentUser = res["currentUser"][0];
+
+        /*
+        this.userServ.getOwnContact().subscribe({
+          next : (res: any) => {
+            this.authServ.currentUser = res[0];
+            console.log("CurrentUser in MyProfileIcon: ", this.authServ.currentUser);
+
+          }, error : (err: HttpErrorResponse) => {
+
+          }
+        });*/
+
 
         //this.authServ.currentUserOb.next(res["currentUser"]);
         //console.log("CurrentUser nach Login: ", this.authServ.currentUser);

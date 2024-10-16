@@ -29,11 +29,11 @@ export class AuthService {
   currentUserId: number | null = null;
 
 
-  currentUser: UserModel = this.emptyUser;
+  currentUser: UserModel | any = this.emptyUser;
 
   userLoggedIn: boolean = false;
 
-  currentUserOb: Subject<UserModel> = new Subject<UserModel>();
+  //currentUserOb: Subject<UserModel> = new Subject<UserModel>();
 
 
   registerUser(registerData: Registration){

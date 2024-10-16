@@ -1,5 +1,5 @@
 <div class="single-contact-container" *ngIf="authServ.currentUser !== null">
-  <div *ngIf="authServ.userLoggedIn" (click)="showMyProfile()" (mouseleave)="loadUserData()" >
+  <div *ngIf="authServ.userLoggedIn" (click)="showMyProfile()" >
 
       <div class="image-crop">
         <img *ngIf="authServ.currentUser?.profile_picture" [src]="authServ.currentUser.profile_picture"  width="50" height="50" />
