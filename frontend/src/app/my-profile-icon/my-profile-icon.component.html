@@ -1,4 +1,4 @@
-<div class="single-contact-container">
+<div class="single-contact-container" *ngIf="authServ.currentUser !== null">
   <div *ngIf="authServ.userLoggedIn" (click)="showMyProfile()" (mouseleave)="loadUserData()" >
 
       <div class="image-crop">

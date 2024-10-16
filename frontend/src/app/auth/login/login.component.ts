@@ -55,7 +55,7 @@ export class LoginComponent {
         this.authServ.currentUser = res["currentUser"];
 
         //this.authServ.currentUserOb.next(res["currentUser"]);
-
+        //console.log("CurrentUser nach Login: ", this.authServ.currentUser);
 
         this.authServ.userLoggedIn = true;
         this.router.navigate(["/"]);

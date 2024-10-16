@@ -40,7 +40,7 @@ export class MyProfileIconComponent implements OnInit {
 
     this.userServ.getOwnContact().subscribe({
       next : (res: any) => {
-        this.currentUserForMyProfileIcon = res[0];
+        this.authServ.currentUser = res[0];
         console.log("CurrentUser in MyProfileIcon: ", this.authServ.currentUser);
 
       }, error : (err: HttpErrorResponse) => {
@@ -51,27 +51,9 @@ export class MyProfileIconComponent implements OnInit {
 
   ngOnInit() {
 
-    /*
-    if (this.currentUserForMyProfileIcon === this.authServ.emptyUser || null){
-      setInterval(() => {
+    if (this.authServ.currentUser){
       this.loadUserData();
-    }, 1000);
-    }*/
-
-
-    /*
-    const currUserSubscription = this.authServ.currentUserOb.subscribe(value => {
-      const currentUser = value;
-    })
-
-    this.routerSubscription = this.router.events.subscribe(event => {
-
-      if (event instanceof NavigationEnd) {
-        this.profilePicture = this.authServ.currentUser.profile_picture;
-        //console.log("CurrentUser von der my-profile-icon Komponente: ", this.authServ.currentUser);
-
-      }
-    });*/
+    }
 
   }
 
