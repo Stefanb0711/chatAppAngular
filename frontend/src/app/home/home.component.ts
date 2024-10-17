@@ -31,11 +31,25 @@ export class HomeComponent implements OnInit{
 
     this.currentToken = localStorage.getItem("token");
 
-    if (this.currentToken !== "") {
+    if (this.currentToken !== "" && this.currentToken !== null) {
       this.authServ.userLoggedIn = true;
+      this.authServ.authToken = localStorage.getItem("token");
+
+      this.userServ.getOwnContact().subscribe({
+      next : (res: any) => {
+        console.log("MyContact: ", res[0]);
+        this.authServ.currentUser = res[0];
+      }, error : (err: HttpErrorResponse) => {
+
+      }
+    });
+
+    } else {
+      this.authServ.userLoggedIn = false;
 
     }
 
+    /*
     if (this.authServ.userLoggedIn !== false){
 
       try {
@@ -46,10 +60,10 @@ export class HomeComponent implements OnInit{
         console.log("Kein Token vorhanden");
       }
 
-    }
+    }*/
 
     //console.log("CurrentToken: ", this.currentToken);
-
+    /*
     this.userServ.getOwnContact().subscribe({
       next : (res: any) => {
         console.log("MyContact: ", res[0]);
@@ -57,7 +71,7 @@ export class HomeComponent implements OnInit{
       }, error : (err: HttpErrorResponse) => {
 
       }
-    });
+    });*/
 
   }
 
