@@ -17,7 +17,7 @@ import {InterfaceService} from "../services/interface-service.service";
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   currentToken: string | null = null;
 
@@ -25,16 +25,19 @@ export class HomeComponent implements OnInit{
 
   }
 
+
   ngOnInit() {
 
     console.log("Aktueller Authtoken: ", this.authServ.authToken);
 
+
     this.currentToken = localStorage.getItem("token");
+
 
     if (this.currentToken !== "" && this.currentToken !== null) {
       this.authServ.userLoggedIn = true;
       this.authServ.authToken = localStorage.getItem("token");
-
+      /*
       this.userServ.getOwnContact().subscribe({
       next : (res: any) => {
         console.log("MyContact: ", res[0]);
@@ -42,7 +45,26 @@ export class HomeComponent implements OnInit{
       }, error : (err: HttpErrorResponse) => {
 
       }
-    });
+    });*/
+
+      this.userServ.getUserInfoWhenYouHaveToken().subscribe({
+        next: (res: any) => {
+
+          this.authServ.currentUser = res["currentUser"][0];
+
+          console.log("CurrentUser nach getUserInfoWhenYouHaveToken: ", this.authServ.currentUser);
+
+
+        }, error: (err: HttpErrorResponse) => {
+
+          if (err.status === 403){
+            this.authServ.userLoggedIn = false;
+          }
+            console.error("Fehler beim bekommen der Userinfo mithilfe des Authtokens");
+          }
+      });
+
+      console.log("Aktueller Benutzer: ", this.authServ.currentUser);
 
     } else {
       this.authServ.userLoggedIn = false;

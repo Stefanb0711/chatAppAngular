@@ -338,7 +338,7 @@ app.post("/login", async (req, res) => {
         if (result.rows.length > 0){
 
 
-            jwt.sign({ loginData }, JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
+            jwt.sign({ loginData }, JWT_SECRET, { expiresIn: '10s' }, (err, token) => {
                 if (err) {
 
                     console.log("Result.Rows größer als 1 aber Fehler beim erstellen des Tokens");
@@ -379,11 +379,20 @@ app.post("/login", async (req, res) => {
 });
 
 
+//app.get("/get-user-info", (req, res) => )
+
+/*
 app.get("/get-current-own-user-id", async (req, res) => {
 
+    try {
+        const result = await db.query("SELECT * FROM users WHERE username = $1 AND password = $2");
+
+    } catch (err) {
+
+    }
     //req.headers["Authorization"]
 
-});
+});*/
 
 app.post("/add-user-for-chat", async (req, res) => {
 
@@ -640,6 +649,37 @@ app.delete("/delete-chat/:idOfUserToDelete/:id", async (req, res) => {
     } catch (err){
 
     }
+
+})
+
+
+
+app.post("/get-user-when-you-have-username-and-password", verifyToken, async (req, res) => {
+
+    const loginData = req.body["loginData"];
+
+    //console.log("loginData in get-user-when-you-have-username-and-password: ", loginData);
+    //console.log("ReqBody von get-user-when-you-have-username-and-password: ", req.body);
+
+
+    try {
+        const result = await db.query("SELECT * FROM users WHERE (username = $1 OR email = $1) AND password = $2", [loginData["usernameOrEmail"], loginData["password"]]);
+
+        if (result.rowCount > 0) {
+
+            console.log("Current user aus get-user-when-you-have-username-and-password: ", result.rows );
+
+            return res.status(200).json({"currentUser": result.rows});
+        }
+
+        console.log("Current user aus get-user-when-you-have-username-and-password konnte nicht gefunden werden");
+
+        return res.status(404).json({"message": "User coudld not be found"});
+
+    } catch (err) {
+        return res.status(500).json({"messsage": "Internal Server error"});
+    }
+
 
 })
 

@@ -4,7 +4,9 @@ import {TokenResponseModel} from "../models/TokenResponse.model";
 import {UserModel} from "../models/User.model";
 import {AuthService} from "./auth-service.service";
 import {ApiResponseModel} from "../models/ApiResponse.model";
-
+import {jwtDecode} from "jwt-decode";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
+import {DecodedToken} from "../models/DecodedToken.model";
 @Injectable({providedIn: "root"})
 export class UserService {
 
@@ -129,6 +131,38 @@ export class UserService {
       {
       headers
     });
+  }
+
+
+  getUserInfoWhenYouHaveToken() {
+
+    let decodedToken;
+
+    if (this.authServ.authToken !== null) {
+      decodedToken = jwtDecode<DecodedToken>(this.authServ.authToken);
+
+      //const loginData = decodedToken["loginData"];
+
+
+    }
+
+      //console.log("Decoded Token: ", decodedToken["loginData"]);
+
+      const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authServ.authToken}`,
+      'Content-Type': 'application/json'// Auth-Token im Header
+      });
+
+
+
+      /*
+      const loginData = {
+        "username": decodedToken["loginData"]["usernameOrEmail"],
+        "password": decodedToken["loginData"]["password"]
+      };*/
+
+      return this.httpServ.post<any>("http://localhost:3001/get-user-when-you-have-username-and-password", decodedToken,{headers});
+
   }
 
 
