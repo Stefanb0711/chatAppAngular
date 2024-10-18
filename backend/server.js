@@ -338,7 +338,7 @@ app.post("/login", async (req, res) => {
         if (result.rows.length > 0){
 
 
-            jwt.sign({ loginData }, JWT_SECRET, { expiresIn: '10s' }, (err, token) => {
+            jwt.sign({ loginData }, JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
                 if (err) {
 
                     console.log("Result.Rows größer als 1 aber Fehler beim erstellen des Tokens");
