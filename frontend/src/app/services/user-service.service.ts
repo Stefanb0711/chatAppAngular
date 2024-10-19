@@ -36,9 +36,7 @@ export class UserService {
       'Content-Type': 'application/json'// Auth-Token im Header
     });
 
-    return this.httpServ.post<any>("http://localhost:3001/get-users-matching-search", {inputValue, 'myContactsIds': this.myContactsIds}, {
-      "headers": headers
-    });
+    return this.httpServ.post<any>("http://localhost:3001/get-users-matching-search", {inputValue, 'myContactsIds': this.myContactsIds}, {headers});
   }
 
   addUserForChat(contactId: number | null){

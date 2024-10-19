@@ -53,7 +53,17 @@ export class HomeComponent implements OnInit {
           this.authServ.currentUser = res["currentUser"][0];
 
           console.log("CurrentUser nach getUserInfoWhenYouHaveToken: ", this.authServ.currentUser);
+          this.userServ.myContactsIds = this.authServ.currentUser.contacts_of_user;
 
+          this.userServ.getMyContacts().subscribe({
+          next : (resContacts: any) => {
+            console.log("My ContactListComponent: ", resContacts["data"] )/*["data"])*/;
+            this.userServ.myContacts = resContacts["data"];
+
+          }, error : (err: HttpErrorResponse) => {
+              console.error("Fehler beim ZUgreifen auf Contacts Ids oder Contact");
+          }
+        });
 
         }, error: (err: HttpErrorResponse) => {
 

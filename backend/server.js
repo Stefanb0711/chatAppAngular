@@ -304,6 +304,8 @@ app.post("/get-users-matching-search", verifyToken, async(req, res) => {
     const myContactsIds = req.body["myContactsIds"];
     //console.log("SearchInput: ", searchInput);
 
+    //console.log("SearchInput und myContactsIds aus get-users-matching-search: ", searchInput, myContactsIds);
+
     try {
         const result = await db.query( "SELECT * FROM users WHERE username ILIKE $1 AND id NOT IN (" + myContactsIds.map((_, i) => `$${i + 2}`).join(",") + ")", [`%${searchInput}%`, ...myContactsIds]);
 
