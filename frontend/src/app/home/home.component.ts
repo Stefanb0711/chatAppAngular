@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
             this.userServ.myContacts = resContacts["data"];
 
           }, error : (err: HttpErrorResponse) => {
-              console.error("Fehler beim ZUgreifen auf Contacts Ids oder Contact");
+              console.error("Fehler beim Zugreifen auf Contacts Ids oder Contact");
           }
         });
 

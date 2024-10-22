@@ -8,3 +8,8 @@
 .login-button {
   background-color: var(--my-green);
 }
+
+
+.error-message-position {
+  margin: auto;
+}

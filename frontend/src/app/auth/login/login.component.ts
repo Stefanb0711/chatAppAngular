@@ -1,23 +1,25 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpErrorResponse} from "@angular/common/http";
 import {AuthService} from "../../services/auth-service.service";
 import {LoginModel} from "../../models/Login.model";
 import {FormsModule} from "@angular/forms";
 import {UserService} from "../../services/user-service.service";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  constructor(private router : Router, private authServ: AuthService,
+  constructor(private router : Router, public authServ: AuthService,
               private userServ: UserService) {
 
   }
@@ -34,7 +36,11 @@ export class LoginComponent {
 
   errorMessage: string = "";
 
-   submitLogin(){
+  ngOnInit() {
+    console.log("UserLogged in in Loginkomponent: ", this.authServ.userLoggedIn);
+  }
+
+  submitLogin(){
 
 
     this.authServ.loginUser(this.loginData).subscribe({

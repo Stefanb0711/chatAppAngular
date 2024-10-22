@@ -1,4 +1,4 @@
-<div class="login-container">
+<div *ngIf="!authServ.userLoggedIn" class="login-container">
     <h1 class="h3 mb-3 fw-normal">Anmelden</h1>
 
     <div class="form-floating">
@@ -19,4 +19,7 @@
 
 </div>
 
+<div *ngIf="authServ.userLoggedIn">
+  <p class="error-message error-message-position">Sie sind schon eingellogt. Loggen sie sich erst aus um sich einzuloggen</p>
+</div>
 
