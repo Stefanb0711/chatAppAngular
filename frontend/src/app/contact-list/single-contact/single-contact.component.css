@@ -19,7 +19,11 @@
 
 
 .spaced {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.trash-space {
+  margin-top: 20%;
 }
 
 .image-crop {
@@ -47,3 +51,4 @@
   border-radius: 15px;         /* Abgerundete Ecken */
   padding: 10px;
 }
+

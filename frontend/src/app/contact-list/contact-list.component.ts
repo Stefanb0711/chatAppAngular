@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {StartConversationComponent} from "./start-conversation/start-conversation.component";
 import {AuthService} from "../services/auth-service.service";
 import {UserService} from "../services/user-service.service";
@@ -13,14 +13,15 @@ import {SingleContactComponent} from "./single-contact/single-contact.component"
   imports: [
     NgForOf,
     StartConversationComponent,
-    SingleContactComponent
+    SingleContactComponent,
+    NgIf
   ],
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.css'
 })
 export class ContactListComponent implements OnInit {
 
-  constructor(private authServ: AuthService, public userServ: UserService) {
+  constructor(public authServ: AuthService, public userServ: UserService) {
   }
 
   myContacts : UserModel[] = [];
