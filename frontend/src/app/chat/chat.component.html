@@ -1,4 +1,4 @@
-<div class="chat" *ngIf="userServ.currentChatPartnerId !== null">
+<div class="chat" *ngIf="userServ.currentChatPartnerId !== null && authServ.userLoggedIn === true">
 
   <div *ngFor="let message of chatServ.currentChatMessages; let messageIndex =index; let isLast = last">
 
