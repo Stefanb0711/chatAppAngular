@@ -304,11 +304,15 @@ app.post("/get-users-matching-search", verifyToken, async(req, res) => {
     const myContactsIds = req.body["myContactsIds"];
     //console.log("SearchInput: ", searchInput);
 
-    //console.log("SearchInput und myContactsIds aus get-users-matching-search: ", searchInput, myContactsIds);
+    console.log("SearchInput und myContactsIds aus get-users-matching-search: ", searchInput, myContactsIds);
 
     try {
-        const result = await db.query( "SELECT * FROM users WHERE username ILIKE $1 AND id NOT IN (" + myContactsIds.map((_, i) => `$${i + 2}`).join(",") + ")", [`%${searchInput}%`, ...myContactsIds]);
-
+        const result = await db.query(
+          `SELECT * FROM users 
+           WHERE username ILIKE $1 
+           ${myContactsIds.length > 0 ? `AND id NOT IN (${myContactsIds.map((_, i) => `$${i + 2}`).join(",")})` : ""}`,
+          [`%${searchInput}%`, ...myContactsIds]
+        );
         //console.log("Result.Rows: ", result.rows);
 
         if (result.rows.length > 0)
@@ -317,7 +321,7 @@ app.post("/get-users-matching-search", verifyToken, async(req, res) => {
         return res.status(404).json({"message": "Keine Kontakte gefunden"});
 
     } catch(err){
-        console.error(err);
+        console.error("Fehler beim filtern von benutzern: ", err);
         return res.status(500).json({"message": "Internal Server error"});
     }
 

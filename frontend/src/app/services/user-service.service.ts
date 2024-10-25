@@ -141,7 +141,6 @@ export class UserService {
 
       //const loginData = decodedToken["loginData"];
 
-
     }
 
       //console.log("Decoded Token: ", decodedToken["loginData"]);
