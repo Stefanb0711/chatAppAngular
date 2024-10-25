@@ -4,6 +4,7 @@ import {UserService} from "../../services/user-service.service";
 import {ChatMessageModel, ChatResponse} from "../../models/ChatMessage.model";
 import {ChatService} from "../../services/chat-service.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {AuthService} from "../../services/auth-service.service";
 
 @Component({
   selector: 'app-single-contact',
@@ -17,7 +18,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class SingleContactComponent {
 
 
-  constructor(private userServ: UserService, public chatServ: ChatService, private cd: ChangeDetectorRef) {
+  constructor(private authServ: AuthService,private userServ: UserService, public chatServ: ChatService, private cd: ChangeDetectorRef) {
     this.chatServ.currentChatMessages = [this.emptyChat];
 
   }
@@ -39,6 +40,8 @@ export class SingleContactComponent {
 
   showChat() {
     this.userServ.currentChatPartnerId = this.contactId;
+
+    console.log(`ShowChat CurrentUserId: ${this.authServ.currentUserId}, CurrentChatPartnerId: ${this.userServ.currentChatPartnerId} `);
 
     this.chatServ.loadChatMessages().subscribe({
       next : (res : ChatResponse) => {

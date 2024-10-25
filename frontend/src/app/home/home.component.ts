@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
         next: (res: any) => {
 
           this.authServ.currentUser = res["currentUser"][0];
+          this.authServ.currentUserId = this.authServ.currentUser.id;
 
           console.log("CurrentUser nach getUserInfoWhenYouHaveToken: ", this.authServ.currentUser);
           this.userServ.myContactsIds = this.authServ.currentUser.contacts_of_user;
