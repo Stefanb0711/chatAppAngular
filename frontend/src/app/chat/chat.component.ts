@@ -5,6 +5,7 @@ import {ChatMessageModel} from "../models/ChatMessage.model";
 import {SingleChatMessageComponent} from "./single-chat-message/single-chat-message.component";
 import {ChatService} from "../services/chat-service.service";
 import {UserService} from "../services/user-service.service";
+import {AuthService} from "../services/auth-service.service";
 
 @Component({
   selector: 'app-chat',
@@ -23,7 +24,7 @@ import {UserService} from "../services/user-service.service";
 export class ChatComponent implements OnInit{
 
 
-   constructor(public chatServ: ChatService, public userServ: UserService) {
+   constructor(public chatServ: ChatService, public userServ: UserService, public authServ: AuthService) {
 
    }
 

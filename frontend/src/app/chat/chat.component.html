@@ -1,6 +1,6 @@
 <div class="chat" *ngIf="userServ.currentChatPartnerId !== null">
 
-  <div class="chat-container" *ngFor="let message of chatServ.currentChatMessages; let messageIndex =index; let isLast = last">
+  <div *ngFor="let message of chatServ.currentChatMessages; let messageIndex =index; let isLast = last">
 
     <!--<div *ngIf="message.my_text_message !== null || '' ">
       <app-single-chat-message class="spaced" [messageTime]="message.message_time.toString()" [content]="message.my_text_message"></app-single-chat-message>
@@ -14,7 +14,8 @@
 
   </div>-->
 
-      <div
+    <div *ngIf="message.current_user_id === authServ.currentUserId" class="chat-container">
+       <div
         [ngClass]="{'last-message': isLast}"
         class="spaced chat-message"
         *ngIf="message.my_text_message !== null && message.my_text_message !== ''">
@@ -39,6 +40,40 @@
         </app-single-chat-message>
 
       </div>
+    </div>
+
+    <div *ngIf="message.current_user_id !== authServ.currentUserId" class="chat-container">
+       <div
+        [ngClass]="{'last-message': isLast}"
+        class="spaced chat-partner-message"
+        *ngIf="message.my_text_message !== null && message.my_text_message !== ''">
+        <app-single-chat-message
+          [messageTime]="message.message_time.toString()"
+          [content]="message.my_text_message"
+          [isChatPartnerMessage]="true"
+
+        >
+        </app-single-chat-message>
+      </div>
+
+      <div
+        [ngClass]="{'last-message': isLast}"
+        class="spaced chat-message"
+        *ngIf="message.chat_partner_message !== null && message.chat_partner_message !== ''">
+        <app-single-chat-message
+          [messageTime]="message.message_time.toString()"
+          [content]="message.chat_partner_message"
+          [isChatPartnerMessage]="false"
+        >
+        </app-single-chat-message>
+
+      </div>
+    </div>
+
+
+
+
+
 
     </div>
 
