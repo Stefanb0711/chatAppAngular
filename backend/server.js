@@ -8,6 +8,7 @@ import jwt from "jsonwebtoken";
 import axios from "axios";
 import http from 'http';
 import { Server } from 'socket.io';
+import res from "express/lib/response.js";
 
 /*const apiKey = process.env.API_KEY;
 console.log("Api Key: ", apiKey);*/
@@ -333,18 +334,23 @@ app.post("/login", async (req, res) => {
 
     const loginData = req.body;
 
-
     try{
-        const result = await db.query("SELECT * FROM users WHERE username = $1 AND password = $2", [loginData["usernameOrEmail"], loginData["password"]]);
+        //Benutzernamen finden
+        const resultUsername = await db.query("SELECT * FROM users WHERE username = $1", [loginData["usernameOrEmail"]]);
+        //loginData["password"]
 
-        //console.log("Result.Rows von Login: ", result.rows[0]);
+        console.log("Result.Rows von Login: ", resultUsername.rows[0].password);
 
-        const currentUser = result.rows[0];
+        const currentUser = resultUsername.rows[0];
 
-        if (result.rows.length > 0){
+        if (resultUsername.rows.length > 0){
 
+            const isMatch = await bcrypt.compare(loginData.password, resultUsername.rows[0].password);
 
-            jwt.sign({ loginData }, JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
+            if (isMatch){
+
+                console.log("Password stimmt überein");
+                jwt.sign({ loginData }, JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
                 if (err) {
 
                     console.log("Result.Rows größer als 1 aber Fehler beim erstellen des Tokens");
@@ -358,7 +364,7 @@ app.post("/login", async (req, res) => {
                     allTokens.push(token);
                     //console.log("All Tokens after Login: ", allTokens);
 
-                    const currentUserId = result.rows[0]["id"];
+                    const currentUserId = resultUsername.rows[0]["id"];
 
                     //console.log("CurrentUserId: ", currentUserId);
 
@@ -366,6 +372,12 @@ app.post("/login", async (req, res) => {
 
                 }
             });
+
+            }
+
+            else {
+                return res.status(401).json({ message: 'Falsches Passwort' });
+            }
 
         }
         else {
