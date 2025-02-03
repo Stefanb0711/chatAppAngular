@@ -302,9 +302,12 @@ app.get("/get-all-users", verifyToken, async (req, res) => {
 app.post("/get-users-matching-search", verifyToken, async(req, res) => {
 
     const searchInput = req.body["inputValue"];
-    const myContactsIds = req.body["myContactsIds"];
+    let myContactsIds = req.body["myContactsIds"];
     //console.log("SearchInput: ", searchInput);
+    if (myContactsIds === null){
+        myContactsIds = [];
 
+    }
     console.log("SearchInput und myContactsIds aus get-users-matching-search: ", searchInput, myContactsIds);
 
     try {
@@ -317,6 +320,7 @@ app.post("/get-users-matching-search", verifyToken, async(req, res) => {
         //console.log("Result.Rows: ", result.rows);
 
         if (result.rows.length > 0)
+            console.log("Users matching search: ", result.rows);
             return res.status(200).json({"userData": result.rows});
 
         return res.status(404).json({"message": "Keine Kontakte gefunden"});
