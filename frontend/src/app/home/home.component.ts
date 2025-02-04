@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
 
       this.userServ.getUserInfoWhenYouHaveToken().subscribe({
         next: (res: any) => {
-
+          console.log("get-user-when-you-have-username-and-password RESPONSE: ", res);
           this.authServ.currentUser = res["currentUser"][0];
           this.authServ.currentUserId = this.authServ.currentUser.id;
 
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
             this.userServ.myContacts = resContacts["data"];
 
           }, error : (err: HttpErrorResponse) => {
-              console.error("Fehler beim Zugreifen auf Contacts Ids oder Contact");
+              console.error("Fehler beim Zugreifen auf Contacts Ids oder Contact: ", err.message);
           }
         });
 
@@ -81,6 +81,9 @@ export class HomeComponent implements OnInit {
       this.authServ.userLoggedIn = false;
 
     }
+
+
+
 
     /*
     if (this.authServ.userLoggedIn !== false){

@@ -81,6 +81,8 @@ export class UserService {
       'Content-Type': 'application/json'// Auth-Token im Header
     });*/
 
+
+
     return this.httpServ.post<any>("http://localhost:3001/get-my-contacts", {"myContactsIds": this.myContactsIds},
       {
       headers
@@ -132,9 +134,9 @@ export class UserService {
   }
 
 
+
   getUserInfoWhenYouHaveToken() {
 
-    let decodedToken;
 
     /*
     if (this.authServ.authToken !== null) {

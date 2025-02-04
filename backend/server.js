@@ -163,18 +163,61 @@ const payload = {
 };
 
 let currentUserId = null;
-
+let currentUser;
 let allTokens = [];
+
+let decodedToken;
 
 const defaultProfilePicture = "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg";
 
-function verifyToken(req, res, next) {
+
+async function getCurrentUser(req, res, next) {
+    try {
+        const result = await db.query("SELECT * FROM users WHERE username=$1 OR email=$1", [decodedToken.loginData["usernameOrEmail"]]);
+        req.currentUser = result.rows[0];
+        req.currentUserId = result.rows[0]["id"];
+
+        console.log("CurrentUserId und CurrentUser in getCurrentUser: ", currentUserId, currentUser);
+        const myUserData = result.rows;
+
+        if (result.rows.length === 1){
+            //console.log("MyUserData: ", myUserData);
+            return next();
+        }
+
+        return res.status(404).json({"message": "Kein Nutzer gefunden. Nutzer ist wahrscheinlich noch nicht angemeldet"});
+
+    } catch (err) {
+        return res.status(500).json({"message": "Internal Server error"});
+    }
+
+
+}
+
+ function  verifyToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
     console.log("Req: ", req.headers["authorization"]);
 
+    decodedToken = jwt.decode(token, JWT_SECRET);
 
+
+    console.log("DecodedToken: ", decodedToken);
+
+
+
+    /*
+    const result = await db.query("SELECT * FROM users WHERE (username = $1 OR email = $1) AND password = $2", [decodedToken.loginData["usernameOrEmail"], decodedToken.loginData["password"]]);
+
+    console.log("Result in VerifyToken: ", result);
+
+    currentUserId = result.rows[0]["id"];
+    currentUser = result.rows[0];
+
+    console.log("CurrentUserId und CurrentUser in verifyToken: ", currentUserId);
+
+    */
     if (token == null) return res.sendStatus(401); // Kein Token vorhanden
 
     jwt.verify(token, JWT_SECRET, (err, user) => {
@@ -183,14 +226,20 @@ function verifyToken(req, res, next) {
         req.user = user; // Speichert die dekodierten Benutzerinformationen in der Anfrage
         next();
     });
+
+
 }
 
-app.post("/get-my-contacts-ids", verifyToken, async (req, res) => {
 
-    const currentUserId = req.body["currentUserId"];
+app.post("/get-my-contacts-ids", verifyToken, getCurrentUser, async (req, res) => {
 
+    const currentUserId = req.currentUserId;
+
+    console.log("CurrentUserID in get-my-contacts-ids: ", currentUserId);
     try {
         const result = await db.query("SELECT contacts_of_user FROM users WHERE id=$1", [currentUserId]);
+
+        //console.log("Contacts of user in my-contacts-ids:", result.rows[0]["contacts_of_user"]);
 
         const data = result.rows[0]["contacts_of_user"];
         //console.log("My Contacts: ", data);
@@ -680,12 +729,16 @@ app.post("/get-user-when-you-have-username-and-password", verifyToken, async (re
 
     //const loginData = req.body["loginData"];
 
+    console.log("ReqBody von get-user-when-you-have-username-and-password: ");
+
     let authHeader = req.headers['authorization'];
 
     let token = authHeader.split(' ')[1];
 
 
     const decodedToken = jwt.decode(token);
+
+    //return res.status(200).json({"currentUser": decodedToken});
 
 
     console.log("Decoded Token: ", decodedToken);
@@ -713,7 +766,6 @@ app.post("/get-user-when-you-have-username-and-password", verifyToken, async (re
     } catch (err) {
         return res.status(500).json({"messsage": "Internal Server error"});
     }
-
 
 })
 
