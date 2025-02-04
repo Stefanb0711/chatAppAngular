@@ -136,12 +136,12 @@ export class UserService {
 
     let decodedToken;
 
+    /*
     if (this.authServ.authToken !== null) {
       decodedToken = jwtDecode<DecodedToken>(this.authServ.authToken);
 
       //const loginData = decodedToken["loginData"];
-
-    }
+    }*/
 
       //console.log("Decoded Token: ", decodedToken["loginData"]);
 
@@ -158,7 +158,7 @@ export class UserService {
         "password": decodedToken["loginData"]["password"]
       };*/
 
-      return this.httpServ.post<any>("http://localhost:3001/get-user-when-you-have-username-and-password", decodedToken,{headers});
+      return this.httpServ.post<any>("http://localhost:3001/get-user-when-you-have-username-and-password"/*, decodedToken*/,{headers});
 
   }
 

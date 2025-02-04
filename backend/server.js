@@ -678,7 +678,19 @@ app.delete("/delete-chat/:idOfUserToDelete/:id", async (req, res) => {
 
 app.post("/get-user-when-you-have-username-and-password", verifyToken, async (req, res) => {
 
-    const loginData = req.body["loginData"];
+    //const loginData = req.body["loginData"];
+
+    let authHeader = req.headers['authorization'];
+
+    let token = authHeader.split(' ')[1];
+
+
+    const decodedToken = jwt.decode(token);
+
+
+    console.log("Decoded Token: ", decodedToken);
+
+    const loginData = decodedToken.loginData;
 
     //console.log("loginData in get-user-when-you-have-username-and-password: ", loginData);
     //console.log("ReqBody von get-user-when-you-have-username-and-password: ", req.body);
