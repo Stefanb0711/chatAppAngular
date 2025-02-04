@@ -551,9 +551,9 @@ app.post("/load-chat", async (req, res) => {
     }
 })
 
-app.post("/get-my-user", async (req, res) => {
+app.post("/get-my-user", getCurrentUser, async (req, res) => {
 
-    const currentUserId = req.body["currentUserId"];
+    const currentUserId = req.currentUserId;
 
 
     try {

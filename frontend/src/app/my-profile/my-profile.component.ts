@@ -4,7 +4,7 @@ import {AuthService} from "../services/auth-service.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {UserModel} from "../models/User.model";
 import {Router} from "@angular/router";
-import {NgIf, NgOptimizedImage} from "@angular/common";
+import {NgIf, NgOptimizedImage, NgStyle} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 
 @Component({
@@ -13,7 +13,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     NgOptimizedImage,
     NgIf,
-    FormsModule
+    FormsModule,
+    NgStyle
   ],
   templateUrl: './my-profile.component.html',
   styleUrl: './my-profile.component.css'
